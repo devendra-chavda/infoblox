@@ -152,6 +152,7 @@
         "StorageSuffix": "[environment().suffixes.storage]",
         "monitoringMetricsPublisherRoleId": "3913510d-42f4-4e42-8a64-420c390055eb",
         "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('Workspace'))]",
+        "scope": "[concat(replace(environment().portal, 'portal', 'monitor'), '/.default')]",
         "dceName": "InfobloxDossierDCE",
         "envelopeColumns": [
             { "name": "TimeGenerated", "type": "datetime" },
@@ -166,12 +167,6 @@
         ],
         "dataColumn": [
             { "name": "Data", "type": "dynamic" }
-        ],
-        "failedRangeColumns": [
-            { "name": "TimeGenerated", "type": "datetime" },
-            { "name": "FromDate", "type": "string" },
-            { "name": "ToDate", "type": "string" },
-            { "name": "ThreatType", "type": "string" }
         ],
         "dossierDcrNames": [
             "InfobloxDossier-Atp",
@@ -189,8 +184,7 @@
             "InfobloxDossier-TldRisk",
             "InfobloxDossier-Whitelist",
             "InfobloxDossier-Whois"
-        ],
-        "allDcrNames": "[concat(variables('dossierDcrNames'), createArray('InfobloxConnector-FailedRange'))]"
+        ]
     },
     "resources": [
         {
@@ -299,13 +293,6 @@
             "name": "[concat(parameters('Workspace'), '/dossier_whois_CL')]",
             "properties": { "plan": "Analytics", "schema": { "name": "dossier_whois_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
         },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/tables",
-            "apiVersion": "2022-10-01",
-            "name": "[concat(parameters('Workspace'), '/Failed_Range_To_Ingest_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "Failed_Range_To_Ingest_CL", "columns": "[variables('failedRangeColumns')]" } }
-        },
-
         {
             "type": "Microsoft.Insights/dataCollectionRules",
             "apiVersion": "2021-09-01-preview",
@@ -642,29 +629,6 @@
         },
 
         {
-            "type": "Microsoft.Insights/dataCollectionRules",
-            "apiVersion": "2021-09-01-preview",
-            "name": "InfobloxConnector-FailedRange",
-            "location": "[parameters('DceDcrLocation')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/tables', parameters('Workspace'), 'Failed_Range_To_Ingest_CL')]"
-            ],
-            "properties": {
-                "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
-                "streamDeclarations": {
-                    "Custom-InfobloxFailedRange": { "columns": "[variables('failedRangeColumns')]" }
-                },
-                "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
-                },
-                "dataFlows": [
-                    { "streams": [ "Custom-InfobloxFailedRange" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-Failed_Range_To_Ingest_CL" }
-                ]
-            }
-        },
-
-        {
             "type": "Microsoft.Insights/components",
             "apiVersion": "2020-02-02",
             "name": "[variables('HistoricalNameArray')[copyIndex()].Historical]",
@@ -783,7 +747,7 @@
                 "alwaysOn": true,
                 "reserved": true,
                 "siteConfig": {
-                    "linuxFxVersion": "python|3.11"
+                    "linuxFxVersion": "python|3.12"
                 }
             },
             "resources": [
@@ -793,8 +757,7 @@
                     "name": "appsettings",
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', variables('HistoricalNameArray')[copyIndex()].Historical)]",
-                        "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
-                        "[resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxConnector-FailedRange')]"
+                        "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]"
                     ],
                     "properties": {
                         "FUNCTIONS_EXTENSION_VERSION": "~4",
@@ -813,7 +776,7 @@
                         "Azure_Client_Secret": "[parameters('AzureClientSecret')]",
                         "Azure_Tenant_Id": "[parameters('AzureTenantId')]",
                         "Dce_Endpoint": "[reference(resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))).logsIngestion.endpoint]",
-                        "Dcr_FailedRange_ImmutableId": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxConnector-FailedRange')).immutableId]",
+                        "Scope": "[variables('scope')]",
                         "LogLevel": "[parameters('LogLevel')]",
                         "File_Share_Name": "infoblox-checkpoints",
                         "File_Share_Name_For_Data": "infoblox-data-files",
@@ -994,7 +957,7 @@
                 "alwaysOn": true,
                 "reserved": true,
                 "siteConfig": {
-                    "linuxFxVersion": "python|3.11"
+                    "linuxFxVersion": "python|3.12"
                 }
             },
             "resources": [
@@ -1004,8 +967,7 @@
                     "name": "appsettings",
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', variables('CurrentNameArray')[copyIndex()].Current)]",
-                        "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
-                        "[resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxConnector-FailedRange')]"
+                        "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]"
                     ],
                     "properties": {
                         "FUNCTIONS_EXTENSION_VERSION": "~4",
@@ -1023,7 +985,7 @@
                         "Azure_Client_Secret": "[parameters('AzureClientSecret')]",
                         "Azure_Tenant_Id": "[parameters('AzureTenantId')]",
                         "Dce_Endpoint": "[reference(resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))).logsIngestion.endpoint]",
-                        "Dcr_FailedRange_ImmutableId": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxConnector-FailedRange')).immutableId]",
+                        "Scope": "[variables('scope')]",
                         "LogLevel": "[parameters('LogLevel')]",
                         "File_Share_Name": "infoblox-checkpoint",
                         "File_Share_Name_For_Data": "infoblox-data-files",
@@ -1204,7 +1166,7 @@
                 "alwaysOn": true,
                 "reserved": true,
                 "siteConfig": {
-                    "linuxFxVersion": "python|3.11"
+                    "linuxFxVersion": "python|3.12"
                 }
             },
             "resources": [
@@ -1401,7 +1363,7 @@
                 "alwaysOn": true,
                 "reserved": true,
                 "siteConfig": {
-                    "linuxFxVersion": "python|3.11"
+                    "linuxFxVersion": "python|3.12"
                 }
             },
             "resources": [
@@ -1588,7 +1550,7 @@
                 "alwaysOn": true,
                 "reserved": true,
                 "siteConfig": {
-                    "linuxFxVersion": "python|3.11"
+                    "linuxFxVersion": "python|3.12"
                 }
             },
             "resources": [
@@ -1628,6 +1590,7 @@
                         "Azure_Client_Secret": "[parameters('AzureClientSecret')]",
                         "Azure_Tenant_Id": "[parameters('AzureTenantId')]",
                         "Dce_Endpoint": "[reference(resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))).logsIngestion.endpoint]",
+                        "Scope": "[variables('scope')]",
                         "Dcr_Atp_ImmutableId": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-Atp')).immutableId]",
                         "Dcr_Dns_ImmutableId": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-Dns')).immutableId]",
                         "Dcr_Geo_ImmutableId": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-Geo')).immutableId]",
@@ -1688,8 +1651,8 @@
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2022-04-01",
-            "name": "[guid(resourceId('Microsoft.Insights/dataCollectionRules', variables('allDcrNames')[copyIndex()]), parameters('AzureEntraObjectID'), variables('monitoringMetricsPublisherRoleId'))]",
-            "scope": "[resourceId('Microsoft.Insights/dataCollectionRules', variables('allDcrNames')[copyIndex()])]",
+            "name": "[guid(resourceId('Microsoft.Insights/dataCollectionRules', variables('dossierDcrNames')[copyIndex()]), parameters('AzureEntraObjectID'), variables('monitoringMetricsPublisherRoleId'))]",
+            "scope": "[resourceId('Microsoft.Insights/dataCollectionRules', variables('dossierDcrNames')[copyIndex()])]",
             "dependsOn": [
                 "[resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-Atp')]",
                 "[resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-Dns')]",
@@ -1705,8 +1668,7 @@
                 "[resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-ThreatActor')]",
                 "[resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-TldRisk')]",
                 "[resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-Whitelist')]",
-                "[resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-Whois')]",
-                "[resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxConnector-FailedRange')]"
+                "[resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-Whois')]"
             ],
             "properties": {
                 "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', variables('monitoringMetricsPublisherRoleId'))]",
@@ -1715,7 +1677,7 @@
             },
             "copy": {
                 "name": "dcrRoleAssignmentCopy",
-                "count": "[length(variables('allDcrNames'))]"
+                "count": "[length(variables('dossierDcrNames'))]"
             }
         }
     ],

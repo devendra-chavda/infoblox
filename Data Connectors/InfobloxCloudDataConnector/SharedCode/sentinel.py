@@ -2,7 +2,7 @@
 
 import inspect
 from azure.core.exceptions import HttpResponseError
-from azure.identity import ClientSecretCredential
+from azure.identity import ClientSecretCredential, AzureAuthorityHosts
 from azure.monitor.ingestion import LogsIngestionClient
 from .logger import applogger
 from .infoblox_exception import InfobloxException
@@ -13,14 +13,26 @@ _clients_by_endpoint = {}
 
 
 def _get_credential():
-    """Build (once) and return the AAD client-secret credential used to call the Log Ingestion API."""
+    """Build (once) and return the AAD client-secret credential used to call the Log Ingestion API.
+
+    Picks the Azure Government authority when the DCR/DCE scope (consts.SCOPE) points at a
+    ".us" endpoint, so the same code path works for both Azure Public and Gov Cloud tenants.
+    """
     global _credential
     if _credential is None:
-        _credential = ClientSecretCredential(
-            tenant_id=consts.AZURE_TENANT_ID,
-            client_id=consts.AZURE_CLIENT_ID,
-            client_secret=consts.AZURE_CLIENT_SECRET,
-        )
+        if ".us" in consts.SCOPE:
+            _credential = ClientSecretCredential(
+                tenant_id=consts.AZURE_TENANT_ID,
+                client_id=consts.AZURE_CLIENT_ID,
+                client_secret=consts.AZURE_CLIENT_SECRET,
+                authority=AzureAuthorityHosts.AZURE_GOVERNMENT,
+            )
+        else:
+            _credential = ClientSecretCredential(
+                tenant_id=consts.AZURE_TENANT_ID,
+                client_id=consts.AZURE_CLIENT_ID,
+                client_secret=consts.AZURE_CLIENT_SECRET,
+            )
     return _credential
 
 
@@ -37,6 +49,7 @@ def _get_client(dce_endpoint):
         _clients_by_endpoint[dce_endpoint] = LogsIngestionClient(
             endpoint=dce_endpoint,
             credential=_get_credential(),
+            credential_scopes=[consts.SCOPE],
             logging_enable=False,
         )
     return _clients_by_endpoint[dce_endpoint]

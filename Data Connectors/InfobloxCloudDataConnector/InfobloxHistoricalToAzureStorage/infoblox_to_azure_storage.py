@@ -11,7 +11,6 @@ from ..SharedCode.logger import applogger
 from ..SharedCode.state_manager import StateManager
 from ..SharedCode.table_checkpoint_manager import TableCheckpointManager
 from ..SharedCode.utils import Utils
-from ..SharedCode.sentinel import ingest_logs
 
 
 class InfobloxToAzureStorage(Utils):
@@ -187,7 +186,7 @@ class InfobloxToAzureStorage(Utils):
                 if list_of_file_with_prefix:
                     self.delete_files_from_azure_storage(list_of_file_with_prefix, self.parent_file)
                 if status_of_last_from_date > 2:
-                    self.store_failed_range(from_date, to_date)
+                    self.log_failed_range(from_date, to_date)
 
                     to_date = from_date
                     from_date = self.add_xh_to_iso_time_string(to_date, consts.HISTORICAL_TIME_INTERVAL)
@@ -645,39 +644,20 @@ class InfobloxToAzureStorage(Utils):
             )
             raise InfobloxException()
 
-    def store_failed_range(self, from_date, to_date):
-        """Store range of date which are failed to fetch in table.
+    def log_failed_range(self, from_date, to_date):
+        """Log a warning for a date range that failed to fetch after exhausting retries.
 
         Args:
             from_date (str): from date of range
             to_date (str): to date of range
         """
         __method_name = inspect.currentframe().f_code.co_name
-        try:
-            range_to_append = [
-                {
-                    "TimeGenerated": datetime.datetime.utcnow().strftime(consts.DCR_TIME_FORMAT),
-                    "FromDate": from_date,
-                    "ToDate": to_date,
-                    "ThreatType": self.ioc_type,
-                }
-            ]
-            applogger.info(
-                self.log_format.format(
-                    consts.LOGS_STARTS_WITH,
-                    __method_name,
-                    self.azure_function_name,
-                    "Ingesting failed range = {}".format(range_to_append),
-                )
+        applogger.warning(
+            self.log_format.format(
+                consts.LOGS_STARTS_WITH,
+                __method_name,
+                self.azure_function_name,
+                "Exhausted retries fetching ThreatType={} for range FromDate={} ToDate={}. "
+                "This range will be skipped.".format(self.ioc_type, from_date, to_date),
             )
-            ingest_logs(range_to_append, "failed_range")
-        except Exception as err:
-            applogger.error(
-                self.log_format.format(
-                    consts.LOGS_STARTS_WITH,
-                    __method_name,
-                    self.azure_function_name,
-                    consts.UNEXPECTED_ERROR_MSG.format(err),
-                )
-            )
-            raise InfobloxException()
+        )

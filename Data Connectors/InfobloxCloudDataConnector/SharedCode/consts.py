@@ -62,6 +62,10 @@ AZURE_CLIENT_SECRET = os.environ.get("Azure_Client_Secret", "")
 AZURE_TENANT_ID = os.environ.get("Azure_Tenant_Id", "")
 WORKSPACE_ID = os.environ.get("Workspace_Id", "")
 
+# AAD token scope for the Log Ingestion API, derived by the ARM template from environment().portal
+# (e.g. "https://monitor.azure.com/.default" on Azure Public, "https://monitor.azure.us/.default" on Gov Cloud).
+SCOPE = os.environ.get("Scope", "https://monitor.azure.com/.default")
+
 LOG_LEVEL = os.environ.get("LogLevel", "INFO")
 
 # *Sentinel Apis
@@ -91,7 +95,6 @@ DCR_THREAT_ACTOR_IMMUTABLE_ID = os.environ.get("Dcr_ThreatActor_ImmutableId", ""
 DCR_TLD_RISK_IMMUTABLE_ID = os.environ.get("Dcr_TldRisk_ImmutableId", "")
 DCR_WHITELIST_IMMUTABLE_ID = os.environ.get("Dcr_Whitelist_ImmutableId", "")
 DCR_WHOIS_IMMUTABLE_ID = os.environ.get("Dcr_Whois_ImmutableId", "")
-DCR_FAILED_RANGE_IMMUTABLE_ID = os.environ.get("Dcr_FailedRange_ImmutableId", "")
 
 # table_key (as used by SharedCode.sentinel.ingest_logs) -> {endpoint, immutable_id, stream}
 # The "Atp" DCR carries two streams (dossier_atp_CL summary + dossier_atp_threat_CL per-threat rows),
@@ -157,11 +160,6 @@ DCR_STREAMS = {
         "stream": "Custom-DossierWhitelist",
     },
     "whois": {"endpoint": DCE_ENDPOINT, "immutable_id": DCR_WHOIS_IMMUTABLE_ID, "stream": "Custom-DossierWhois"},
-    "failed_range": {
-        "endpoint": DCE_ENDPOINT,
-        "immutable_id": DCR_FAILED_RANGE_IMMUTABLE_ID,
-        "stream": "Custom-InfobloxFailedRange",
-    },
 }
 
 
