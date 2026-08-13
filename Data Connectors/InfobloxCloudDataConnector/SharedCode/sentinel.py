@@ -75,14 +75,15 @@ def ingest_logs(records, table_key):
         return
     stream_config = consts.DCR_STREAMS.get(table_key)
     if not stream_config or not stream_config.get("immutable_id") or not stream_config.get("endpoint"):
+        message = "Missing DCE/DCR configuration for table_key={}".format(table_key)
         applogger.error(
-            "{}(method={}) : Missing DCE/DCR configuration for table_key={}".format(
+            "{}(method={}) : {}".format(
                 consts.LOGS_STARTS_WITH,
                 __method_name,
-                table_key,
+                message,
             )
         )
-        raise InfobloxException()
+        raise InfobloxException(message)
     try:
         client = _get_client(stream_config["endpoint"])
         client.upload(
@@ -107,7 +108,7 @@ def ingest_logs(records, table_key):
                 error,
             )
         )
-        raise InfobloxException()
+        raise InfobloxException(str(error)) from error
     except Exception as error:
         applogger.error(
             "{}(method={}) : Unexpected error for table_key={} : Error-{}".format(
@@ -117,4 +118,4 @@ def ingest_logs(records, table_key):
                 error,
             )
         )
-        raise InfobloxException()
+        raise InfobloxException(str(error)) from error

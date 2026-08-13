@@ -49,7 +49,7 @@ class DossierGetResult(Utils):
                     consts.UNEXPECTED_ERROR_MSG.format(error),
                 )
             )
-            raise InfobloxException()
+            raise InfobloxException(str(error)) from error
 
     def separate_data_into_chunks(self, raw_data, size_of_data):
         """Return data by separating it into 20 mb chunks.
@@ -122,7 +122,7 @@ class DossierGetResult(Utils):
                     consts.UNEXPECTED_ERROR_MSG.format(error),
                 )
             )
-            raise InfobloxException()
+            raise InfobloxException(str(error)) from error
 
     def store_data_in_separate_table(self, key, data, source):
         """Store data in a separate table based on the key, data, and source.
@@ -161,7 +161,7 @@ class DossierGetResult(Utils):
                     "Key error : Error-{} source = {}".format(error, source),
                 )
             )
-            raise InfobloxException()
+            raise InfobloxException(str(error)) from error
         except Exception as error:
             applogger.error(
                 self.log_format.format(
@@ -171,7 +171,7 @@ class DossierGetResult(Utils):
                     "Unexpected error : Error-{} source = {}".format(error, source),
                 )
             )
-            raise InfobloxException()
+            raise InfobloxException(str(error)) from error
 
     def parse_response_and_ingest_to_sentinel(self, json_response):
         """Parse the JSON response and ingest the data to Sentinel based on the source.
@@ -220,7 +220,7 @@ class DossierGetResult(Utils):
                 }
                 ingest_logs([envelope], source)
         except InfobloxException:
-            raise InfobloxException()
+            raise
         except Exception as error:
             applogger.error(
                 self.log_format.format(
@@ -230,7 +230,7 @@ class DossierGetResult(Utils):
                     "Unexpected error : Error-{} source = {}".format(error, source),
                 )
             )
-            raise InfobloxException()
+            raise InfobloxException(str(error)) from error
 
     def get_job_result_and_ingest_in_sentinel(self, job_id):
         """Retrieve the job result and ingest it in Sentinel.
@@ -260,7 +260,7 @@ class DossierGetResult(Utils):
             else:
                 return "Dossier result failed"
         except InfobloxException:
-            raise InfobloxException()
+            raise
         except Exception as error:
             applogger.error(
                 self.log_format.format(
@@ -270,4 +270,4 @@ class DossierGetResult(Utils):
                     consts.UNEXPECTED_ERROR_MSG.format(error),
                 )
             )
-            raise InfobloxException()
+            raise InfobloxException(str(error)) from error
