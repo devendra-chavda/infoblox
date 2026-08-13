@@ -1,6 +1,5 @@
 """Get Dossier Result using job id provided from another activity function."""
 
-import datetime
 import inspect
 import json
 import sys
@@ -85,7 +84,6 @@ class DossierGetResult(Utils):
         item = dict(item)
         task_id = item.pop("task_id", None)
         return {
-            "TimeGenerated": datetime.datetime.utcnow().strftime(consts.DCR_TIME_FORMAT),
             "TaskId": task_id,
             "ParamsType": None,
             "ParamsTarget": None,
@@ -207,7 +205,6 @@ class DossierGetResult(Utils):
                 )
                 params = result_data.get("params", {})
                 envelope = {
-                    "TimeGenerated": datetime.datetime.utcnow().strftime(consts.DCR_TIME_FORMAT),
                     "TaskId": result_data.get("task_id"),
                     "ParamsType": params.get("type"),
                     "ParamsTarget": params.get("target"),
