@@ -71,46 +71,22 @@ class DossierGetResult(Utils):
             yield raw_data[start_count:end_index]
             start_count = end_index
 
-    def build_envelope_from_item(self, item):
-        """Flatten a single split-out array item (threat/records/matches) into the DCR stream schema.
-
-        Args:
-            item (dict): One element of the nested `data.threat`/`data.records`/`data.matches` array,
-                already carrying an injected `task_id` (see `store_data_in_separate_table`).
-
-        Returns:
-            dict: Record shaped to match the target DCR stream's envelope + Data columns.
-        """
-        item = dict(item)
-        task_id = item.pop("task_id", None)
-        return {
-            "TaskId": task_id,
-            "ParamsType": None,
-            "ParamsTarget": None,
-            "ParamsSource": None,
-            "Status": None,
-            "StatusMessage": None,
-            "TimeTakenMs": None,
-            "ApiVersion": None,
-            "Data": item,
-        }
-
     def send_to_sentinel(self, suffix, data, source):
         """Send data to Sentinel after processing it in chunks.
 
         Args:
             suffix (str): A suffix to be used in the data processing.
-            data (dict): The data to be processed and sent to Sentinel.
+            data (dict): The data to be processed and sent to Sentinel. Each item is a
+                split-out array element (threat/records/matches) already carrying its
+                injected `task_id` (see `store_data_in_separate_table`), sent as-is with
+                no wrapping envelope.
             source (str): The source of the data.
         """
         __method_name = inspect.currentframe().f_code.co_name
         try:
             size_of_list = self.get_size_of_json(data)
             for chunk in self.separate_data_into_chunks(data, size_of_list):
-                ingest_logs(
-                    [self.build_envelope_from_item(item) for item in chunk],
-                    "{}_{}".format(source, suffix),
-                )
+                ingest_logs(list(chunk), "{}_{}".format(source, suffix))
         except Exception as error:
             applogger.error(
                 self.log_format.format(
@@ -203,19 +179,8 @@ class DossierGetResult(Utils):
                         "Ingesting data for source = {}".format(source),
                     )
                 )
-                params = result_data.get("params", {})
-                envelope = {
-                    "TaskId": result_data.get("task_id"),
-                    "ParamsType": params.get("type"),
-                    "ParamsTarget": params.get("target"),
-                    "ParamsSource": params.get("source"),
-                    "Status": result_data.get("status"),
-                    "StatusMessage": consts.DOSSIER_STATUS_MESSAGE,
-                    "TimeTakenMs": result_data.get("time"),
-                    "ApiVersion": result_data.get("v"),
-                    "Data": result_data.get("data"),
-                }
-                ingest_logs([envelope], source)
+                result_data["status_message_for_dossier"] = consts.DOSSIER_STATUS_MESSAGE
+                ingest_logs([result_data], source)
         except InfobloxException:
             raise
         except Exception as error:
