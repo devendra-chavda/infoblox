@@ -30,7 +30,7 @@
                 "description": "Enter Base URL starting with \"https://\" followed by hostname (Example: https://csp.infoblox.com)"
             }
         },
-         "InfobloxAPIToken": {
+        "InfobloxAPIToken": {
             "minLength": 1,
             "type": "SecureString",
             "metadata": {
@@ -57,7 +57,7 @@
         },
         "HistoricalDataCutoffDate": {
             "type": "String",
-            "defaultValue" : "2024-01-01",
+            "defaultValue": "2024-01-01",
             "metadata": {
                 "description": "Enter the cutoff date until which you want to retrieve historical data, starting from the current date and moving backwards. The date format should be YYYY-MM-DD. This marks the furthest point in the past from which data will be collected"
             }
@@ -111,14 +111,35 @@
         }
     },
     "variables": {
-        "FunctionNameDurable" : "[concat('dossierlook',uniqueString(resourceGroup().id))]",
-        "function_names_Historical": [ "host", "ip", "url", "hash", "email" ],
-        "function_names_Current": [ "host", "ip", "url", "hash", "email" ],
-        "function_names_Json_parse": [ "hist", "curr" ],
-        "function_names_Indicator": [ "hist", "curr" ],
+        "FunctionNameDurable": "[concat('dossier1',uniqueString(resourceGroup().id))]",
+        "function_names_Historical": [
+            "host1",
+            "ip1",
+            "url1",
+            "hash1",
+            "email1"
+        ],
+        "function_names_Current": [
+            "host1",
+            "ip1",
+            "url1",
+            "hash1",
+            "email1"
+        ],
+        "function_names_Json_parse": [
+            "hist1",
+            "curr1"
+        ],
+        "function_names_Indicator": [
+            "hist1",
+            "curr1"
+        ],
         "HistCommon_storage": "[concat('Histhost',uniqueString(resourceGroup().id))]",
         "CurrCommon_storage": "[concat('Currhost',uniqueString(resourceGroup().id))]",
-        "Storage_Strings": [ "[concat('Histhost',uniqueString(resourceGroup().id))]", "[concat('Currhost',uniqueString(resourceGroup().id))]" ],
+        "Storage_Strings": [
+            "[concat('Histhost',uniqueString(resourceGroup().id))]",
+            "[concat('Currhost',uniqueString(resourceGroup().id))]"
+        ],
         "copy": [
             {
                 "name": "HistoricalNameArray",
@@ -155,18 +176,522 @@
         "scope": "[concat(replace(environment().portal, 'portal', 'monitor'), '/.default')]",
         "dceName": "InfobloxDossierDCE",
         "envelopeColumns": [
-            { "name": "TimeGenerated", "type": "datetime" },
-            { "name": "TaskId", "type": "string" },
-            { "name": "ParamsType", "type": "string" },
-            { "name": "ParamsTarget", "type": "string" },
-            { "name": "ParamsSource", "type": "string" },
-            { "name": "Status", "type": "string" },
-            { "name": "StatusMessage", "type": "string" },
-            { "name": "TimeTakenMs", "type": "real" },
-            { "name": "ApiVersion", "type": "string" }
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            },
+            {
+                "name": "TaskId",
+                "type": "string"
+            },
+            {
+                "name": "ParamsType",
+                "type": "string"
+            },
+            {
+                "name": "ParamsTarget",
+                "type": "string"
+            },
+            {
+                "name": "ParamsSource",
+                "type": "string"
+            },
+            {
+                "name": "Status",
+                "type": "string"
+            },
+            {
+                "name": "StatusMessage",
+                "type": "string"
+            },
+            {
+                "name": "TimeTakenMs",
+                "type": "real"
+            },
+            {
+                "name": "ApiVersion",
+                "type": "string"
+            }
         ],
         "dataColumn": [
-            { "name": "Data", "type": "dynamic" }
+            {
+                "name": "Data",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_atp": [
+            {
+                "name": "Data_record_count",
+                "type": "real"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_atp_threat": [
+            {
+                "name": "Data_batch_id",
+                "type": "string"
+            },
+            {
+                "name": "Data_class",
+                "type": "string"
+            },
+            {
+                "name": "Data_confidence",
+                "type": "real"
+            },
+            {
+                "name": "Data_detected",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_dga",
+                "type": "string"
+            },
+            {
+                "name": "Data_domain",
+                "type": "string"
+            },
+            {
+                "name": "Data_expiration",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_full_profile",
+                "type": "string"
+            },
+            {
+                "name": "Data_host",
+                "type": "string"
+            },
+            {
+                "name": "Data_id",
+                "type": "string"
+            },
+            {
+                "name": "Data_imported",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_profile",
+                "type": "string"
+            },
+            {
+                "name": "Data_property",
+                "type": "string"
+            },
+            {
+                "name": "Data_received",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_threat_level",
+                "type": "real"
+            },
+            {
+                "name": "Data_tld",
+                "type": "string"
+            },
+            {
+                "name": "Data_type",
+                "type": "string"
+            },
+            {
+                "name": "Data_extended_surbl_list",
+                "type": "string"
+            },
+            {
+                "name": "Data_extended_extended",
+                "type": "string"
+            },
+            {
+                "name": "Data_up",
+                "type": "string"
+            },
+            {
+                "name": "Data_url",
+                "type": "string"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_dns": [
+            {
+                "name": "Data_A",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_AAAA",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_CERT",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_CNAME",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_HTTPS",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_MX",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_NS",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_SOA",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_SVCB",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_TSIG",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_TXT",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_rcode",
+                "type": "string"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_geo": [
+            {
+                "name": "Data_asn_num",
+                "type": "string"
+            },
+            {
+                "name": "Data_city",
+                "type": "string"
+            },
+            {
+                "name": "Data_country_code",
+                "type": "string"
+            },
+            {
+                "name": "Data_country_name",
+                "type": "string"
+            },
+            {
+                "name": "Data_isp",
+                "type": "string"
+            },
+            {
+                "name": "Data_latitude",
+                "type": "real"
+            },
+            {
+                "name": "Data_longitude",
+                "type": "real"
+            },
+            {
+                "name": "Data_org",
+                "type": "string"
+            },
+            {
+                "name": "Data_postal_code",
+                "type": "string"
+            },
+            {
+                "name": "Data_region",
+                "type": "string"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_infoblox_web_cat": [
+            {
+                "name": "Data_results",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_info",
+                "type": "string"
+            },
+            {
+                "name": "Data_reason",
+                "type": "string"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_inforank": [
+            {
+                "name": "Data_message",
+                "type": "string"
+            },
+            {
+                "name": "Data_domain",
+                "type": "string"
+            },
+            {
+                "name": "Data_interval",
+                "type": "string"
+            },
+            {
+                "name": "Data_rank",
+                "type": "real"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_malware_analysis_v3": [
+            {
+                "name": "Data_info",
+                "type": "string"
+            },
+            {
+                "name": "Data_reason",
+                "type": "string"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_nameserver_matches": [
+            {
+                "name": "Data_domain",
+                "type": "string"
+            },
+            {
+                "name": "Data_ns_reputation_confidence",
+                "type": "string"
+            },
+            {
+                "name": "Data_ns_reputation_label",
+                "type": "string"
+            },
+            {
+                "name": "Data_ns_reputation_malicious_counts",
+                "type": "string"
+            },
+            {
+                "name": "Data_ns_reputation_popular",
+                "type": "string"
+            },
+            {
+                "name": "Data_ns_reputation_rare",
+                "type": "string"
+            },
+            {
+                "name": "Data_ns_reputation_raw_score",
+                "type": "string"
+            },
+            {
+                "name": "Data_ns_reputation_score",
+                "type": "string"
+            },
+            {
+                "name": "Data_ns_reputation_total_counts",
+                "type": "string"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_ptr": [
+            {
+                "name": "Data_ptr_record",
+                "type": "string"
+            },
+            {
+                "name": "Data_reason",
+                "type": "string"
+            },
+            {
+                "name": "Data_status",
+                "type": "string"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_rpz_feeds_records": [
+            {
+                "name": "Data_class",
+                "type": "string"
+            },
+            {
+                "name": "Data_expiration",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_feed_name",
+                "type": "string"
+            },
+            {
+                "name": "Data_indicator",
+                "type": "string"
+            },
+            {
+                "name": "Data_property",
+                "type": "string"
+            },
+            {
+                "name": "Data_threat_level",
+                "type": "real"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_tld_risk": [
+            {
+                "name": "Data_matches",
+                "type": "dynamic"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_whitelist": [
+            {
+                "name": "Data_value",
+                "type": "string"
+            },
+            {
+                "name": "Data_whitelisted",
+                "type": "boolean"
+            },
+            {
+                "name": "Data_code",
+                "type": "string"
+            },
+            {
+                "name": "Data_reason",
+                "type": "string"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
+        ],
+        "dataColumns_whois": [
+            {
+                "name": "Data_response_ip_response",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_nameservers",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_response_parsed_whois_contacts",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_parsed_whois_created_date",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_response_parsed_whois_domain",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_parsed_whois_expired_date",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_response_parsed_whois_name_servers",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_response_whois_registry_domain_id",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_whois_registrar_abuse_email",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_whois_registrar_abuse_phone",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_parsed_whois_registrar_iana_id",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_parsed_whois_registrar_name",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_parsed_whois_statuses",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_response_parsed_whois_updated_date",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_response_raw",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_registrant",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_registration_created",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_response_registration_expires",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_response_registration_registrar",
+                "type": "string"
+            },
+            {
+                "name": "Data_response_registration_statuses",
+                "type": "dynamic"
+            },
+            {
+                "name": "Data_response_registration_updated",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_response_whois_date",
+                "type": "datetime"
+            },
+            {
+                "name": "Data_response_whois_record",
+                "type": "string"
+            },
+            {
+                "name": "RowData",
+                "type": "dynamic"
+            }
         ],
         "dossierDcrNames": [
             "InfobloxDossier-Atp",
@@ -193,105 +718,202 @@
             "name": "[variables('dceName')]",
             "location": "[parameters('DceDcrLocation')]",
             "properties": {
-                "networkAcls": { "publicNetworkAccess": "Enabled" }
+                "networkAcls": {
+                    "publicNetworkAccess": "Enabled"
+                }
             }
         },
-
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_atp_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_atp_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_atp_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_atp'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_atp_threat_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_atp_threat_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_atp_threat_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_atp_threat'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_dns_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_dns_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_dns_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_dns'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_geo_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_geo_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_geo_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_geo'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_infoblox_web_cat_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_infoblox_web_cat_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_infoblox_web_cat_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_infoblox_web_cat'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_inforank_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_inforank_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_inforank_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_inforank'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_malware_analysis_v3_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_malware_analysis_v3_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_malware_analysis_v3_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_malware_analysis_v3'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_nameserver_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_nameserver_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_nameserver_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_nameserver_matches_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_nameserver_matches_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_nameserver_matches_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_nameserver_matches'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_ptr_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_ptr_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_ptr_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_ptr'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_rpz_feeds_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_rpz_feeds_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_rpz_feeds_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_rpz_feeds_records_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_rpz_feeds_records_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_rpz_feeds_records_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_rpz_feeds_records'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_threat_actor_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_threat_actor_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_threat_actor_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_tld_risk_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_tld_risk_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_tld_risk_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_tld_risk'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_whitelist_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_whitelist_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_whitelist_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_whitelist'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/tables",
             "apiVersion": "2022-10-01",
             "name": "[concat(parameters('Workspace'), '/dossier_whois_CL')]",
-            "properties": { "plan": "Analytics", "schema": { "name": "dossier_whois_CL", "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" } }
+            "properties": {
+                "plan": "Analytics",
+                "schema": {
+                    "name": "dossier_whois_CL",
+                    "columns": "[concat(variables('envelopeColumns'), variables('dataColumns_whois'))]"
+                }
+            }
         },
         {
             "type": "Microsoft.Insights/dataCollectionRules",
@@ -306,15 +928,42 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierAtp": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" },
-                    "Custom-DossierAtpThreat": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierAtp": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    },
+                    "Custom-DossierAtpThreat": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierAtp" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_atp_CL" },
-                    { "streams": [ "Custom-DossierAtpThreat" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_atp_threat_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierAtp"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_record_count = toreal(json_Data[\"record_count\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_atp_CL"
+                    },
+                    {
+                        "streams": [
+                            "Custom-DossierAtpThreat"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend json_Data_extended = parse_json(json_Data[\"extended\"])\n| extend Data_batch_id = tostring(json_Data[\"batch_id\"]), Data_class = tostring(json_Data[\"class\"]), Data_confidence = toreal(json_Data[\"confidence\"]), Data_detected = todatetime(json_Data[\"detected\"]), Data_dga = tostring(json_Data[\"dga\"])\n| extend Data_domain = tostring(json_Data[\"domain\"]), Data_expiration = todatetime(json_Data[\"expiration\"]), Data_full_profile = tostring(json_Data[\"full_profile\"]), Data_host = tostring(json_Data[\"host\"]), Data_id = tostring(json_Data[\"id\"])\n| extend Data_imported = todatetime(json_Data[\"imported\"]), Data_profile = tostring(json_Data[\"profile\"]), Data_property = tostring(json_Data[\"property\"]), Data_received = todatetime(json_Data[\"received\"]), Data_threat_level = toreal(json_Data[\"threat_level\"])\n| extend Data_tld = tostring(json_Data[\"tld\"]), Data_type = tostring(json_Data[\"type\"]), Data_extended_surbl_list = tostring(json_Data_extended[\"surbl_list\"]), Data_extended_extended = tostring(json_Data_extended[\"extended\"]), Data_up = tostring(json_Data[\"up\"])\n| extend Data_url = tostring(json_Data[\"url\"])\n| project-away json_Data, json_Data_extended\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_atp_threat_CL"
+                    }
                 ]
             }
         },
@@ -330,13 +979,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierDns": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierDns": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierDns" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_dns_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierDns"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_A = todynamic(json_Data[\"A\"]), Data_AAAA = todynamic(json_Data[\"AAAA\"]), Data_CERT = todynamic(json_Data[\"CERT\"]), Data_CNAME = todynamic(json_Data[\"CNAME\"]), Data_HTTPS = todynamic(json_Data[\"HTTPS\"])\n| extend Data_MX = todynamic(json_Data[\"MX\"]), Data_NS = todynamic(json_Data[\"NS\"]), Data_SOA = todynamic(json_Data[\"SOA\"]), Data_SVCB = todynamic(json_Data[\"SVCB\"]), Data_TSIG = todynamic(json_Data[\"TSIG\"])\n| extend Data_TXT = todynamic(json_Data[\"TXT\"]), Data_rcode = tostring(json_Data[\"rcode\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_dns_CL"
+                    }
                 ]
             }
         },
@@ -352,13 +1017,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierGeo": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierGeo": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierGeo" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_geo_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierGeo"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_asn_num = tostring(json_Data[\"asn_num\"]), Data_city = tostring(json_Data[\"city\"]), Data_country_code = tostring(json_Data[\"country_code\"]), Data_country_name = tostring(json_Data[\"country_name\"]), Data_isp = tostring(json_Data[\"isp\"])\n| extend Data_latitude = toreal(json_Data[\"latitude\"]), Data_longitude = toreal(json_Data[\"longitude\"]), Data_org = tostring(json_Data[\"org\"]), Data_postal_code = tostring(json_Data[\"postal_code\"]), Data_region = tostring(json_Data[\"region\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_geo_CL"
+                    }
                 ]
             }
         },
@@ -374,13 +1055,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierInfobloxWebCat": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierInfobloxWebCat": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierInfobloxWebCat" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_infoblox_web_cat_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierInfobloxWebCat"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_results = todynamic(json_Data[\"results\"]), Data_info = tostring(json_Data[\"info\"]), Data_reason = tostring(json_Data[\"reason\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_infoblox_web_cat_CL"
+                    }
                 ]
             }
         },
@@ -396,13 +1093,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierInforank": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierInforank": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierInforank" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_inforank_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierInforank"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_message = tostring(json_Data[\"message\"]), Data_domain = tostring(json_Data[\"domain\"]), Data_interval = tostring(json_Data[\"interval\"]), Data_rank = toreal(json_Data[\"rank\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_inforank_CL"
+                    }
                 ]
             }
         },
@@ -418,13 +1131,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierMalwareAnalysisV3": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierMalwareAnalysisV3": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierMalwareAnalysisV3" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_malware_analysis_v3_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierMalwareAnalysisV3"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_info = tostring(json_Data[\"info\"]), Data_reason = tostring(json_Data[\"reason\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_malware_analysis_v3_CL"
+                    }
                 ]
             }
         },
@@ -440,17 +1169,32 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierNameserver": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierNameserver": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierNameserver" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_nameserver_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierNameserver"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now())",
+                        "outputStream": "Custom-dossier_nameserver_CL"
+                    }
                 ]
             }
         },
-
         {
             "type": "Microsoft.Insights/dataCollectionRules",
             "apiVersion": "2021-09-01-preview",
@@ -463,13 +1207,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierNameserverMatches": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierNameserverMatches": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierNameserverMatches" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_nameserver_matches_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierNameserverMatches"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_domain = tostring(json_Data[\"domain\"]), Data_ns_reputation_confidence = tostring(json_Data[\"ns_reputation_confidence\"]), Data_ns_reputation_label = tostring(json_Data[\"ns_reputation_label\"]), Data_ns_reputation_malicious_counts = tostring(json_Data[\"ns_reputation_malicious_counts\"]), Data_ns_reputation_popular = tostring(json_Data[\"ns_reputation_popular\"])\n| extend Data_ns_reputation_rare = tostring(json_Data[\"ns_reputation_rare\"]), Data_ns_reputation_raw_score = tostring(json_Data[\"ns_reputation_raw_score\"]), Data_ns_reputation_score = tostring(json_Data[\"ns_reputation_score\"]), Data_ns_reputation_total_counts = tostring(json_Data[\"ns_reputation_total_counts\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_nameserver_matches_CL"
+                    }
                 ]
             }
         },
@@ -485,13 +1245,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierPtr": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierPtr": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierPtr" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_ptr_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierPtr"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_ptr_record = tostring(json_Data[\"ptr_record\"]), Data_reason = tostring(json_Data[\"reason\"]), Data_status = tostring(json_Data[\"status\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_ptr_CL"
+                    }
                 ]
             }
         },
@@ -507,13 +1283,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierRpzFeeds": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierRpzFeeds": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierRpzFeeds" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_rpz_feeds_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierRpzFeeds"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now())",
+                        "outputStream": "Custom-dossier_rpz_feeds_CL"
+                    }
                 ]
             }
         },
@@ -529,13 +1321,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierRpzFeedsRecords": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierRpzFeedsRecords": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierRpzFeedsRecords" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_rpz_feeds_records_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierRpzFeedsRecords"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_class = tostring(json_Data[\"class\"]), Data_expiration = todatetime(json_Data[\"expiration\"]), Data_feed_name = tostring(json_Data[\"feed_name\"]), Data_indicator = tostring(json_Data[\"indicator\"]), Data_property = tostring(json_Data[\"property\"])\n| extend Data_threat_level = toreal(json_Data[\"threat_level\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_rpz_feeds_records_CL"
+                    }
                 ]
             }
         },
@@ -551,13 +1359,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierThreatActor": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierThreatActor": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierThreatActor" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_threat_actor_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierThreatActor"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now())",
+                        "outputStream": "Custom-dossier_threat_actor_CL"
+                    }
                 ]
             }
         },
@@ -573,13 +1397,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierTldRisk": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierTldRisk": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierTldRisk" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_tld_risk_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierTldRisk"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_matches = todynamic(json_Data[\"matches\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_tld_risk_CL"
+                    }
                 ]
             }
         },
@@ -595,13 +1435,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierWhitelist": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierWhitelist": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierWhitelist" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_whitelist_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierWhitelist"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend Data_value = tostring(json_Data[\"value\"]), Data_whitelisted = tobool(json_Data[\"whitelisted\"]), Data_code = tostring(json_Data[\"code\"]), Data_reason = tostring(json_Data[\"reason\"])\n| project-away json_Data\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_whitelist_CL"
+                    }
                 ]
             }
         },
@@ -617,17 +1473,32 @@
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
-                    "Custom-DossierWhois": { "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]" }
+                    "Custom-DossierWhois": {
+                        "columns": "[concat(variables('envelopeColumns'), variables('dataColumn'))]"
+                    }
                 },
                 "destinations": {
-                    "logAnalytics": [ { "workspaceResourceId": "[variables('workspaceResourceId')]", "name": "logAnalyticsDest" } ]
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[variables('workspaceResourceId')]",
+                            "name": "logAnalyticsDest"
+                        }
+                    ]
                 },
                 "dataFlows": [
-                    { "streams": [ "Custom-DossierWhois" ], "destinations": [ "logAnalyticsDest" ], "transformKql": "source", "outputStream": "Custom-dossier_whois_CL" }
+                    {
+                        "streams": [
+                            "Custom-DossierWhois"
+                        ],
+                        "destinations": [
+                            "logAnalyticsDest"
+                        ],
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_Data = parse_json(Data)\n| extend json_Data_response = parse_json(json_Data[\"response\"])\n| extend json_Data_response_parsed_whois = parse_json(json_Data_response[\"parsed_whois\"]), json_Data_response_registration = parse_json(json_Data_response[\"registration\"]), json_Data_response_whois = parse_json(json_Data_response[\"whois\"])\n| extend json_Data_response_parsed_whois_other_properties = parse_json(json_Data_response_parsed_whois[\"other_properties\"]), json_Data_response_parsed_whois_registrar = parse_json(json_Data_response_parsed_whois[\"registrar\"])\n| extend Data_response_ip_response = tostring(json_Data_response[\"ip_response\"]), Data_response_nameservers = todynamic(json_Data_response[\"nameservers\"]), Data_response_parsed_whois_contacts = tostring(json_Data_response_parsed_whois[\"contacts\"]), Data_response_parsed_whois_created_date = todatetime(json_Data_response_parsed_whois[\"created_date\"]), Data_response_parsed_whois_domain = tostring(json_Data_response_parsed_whois[\"domain\"])\n| extend Data_response_parsed_whois_expired_date = todatetime(json_Data_response_parsed_whois[\"expired_date\"]), Data_response_parsed_whois_name_servers = todynamic(json_Data_response_parsed_whois[\"name_servers\"]), Data_response_whois_registry_domain_id = tostring(json_Data_response_parsed_whois_other_properties[\"registry_domain_id\"]), Data_response_whois_registrar_abuse_email = tostring(json_Data_response_parsed_whois_registrar[\"abuse_contact_email\"]), Data_response_whois_registrar_abuse_phone = tostring(json_Data_response_parsed_whois_registrar[\"abuse_contact_phone\"])\n| extend Data_response_parsed_whois_registrar_iana_id = tostring(json_Data_response_parsed_whois_registrar[\"iana_id\"]), Data_response_parsed_whois_registrar_name = tostring(json_Data_response_parsed_whois_registrar[\"name\"]), Data_response_parsed_whois_statuses = todynamic(json_Data_response_parsed_whois[\"statuses\"]), Data_response_parsed_whois_updated_date = todatetime(json_Data_response_parsed_whois[\"updated_date\"]), Data_response_raw = tostring(json_Data_response[\"raw\"])\n| extend Data_response_registrant = tostring(json_Data_response[\"registrant\"]), Data_response_registration_created = todatetime(json_Data_response_registration[\"created\"]), Data_response_registration_expires = todatetime(json_Data_response_registration[\"expires\"]), Data_response_registration_registrar = tostring(json_Data_response_registration[\"registrar\"]), Data_response_registration_statuses = todynamic(json_Data_response_registration[\"statuses\"])\n| extend Data_response_registration_updated = todatetime(json_Data_response_registration[\"updated\"]), Data_response_whois_date = todatetime(json_Data_response_whois[\"date\"]), Data_response_whois_record = tostring(json_Data_response_whois[\"record\"])\n| project-away json_Data, json_Data_response, json_Data_response_parsed_whois, json_Data_response_parsed_whois_other_properties, json_Data_response_parsed_whois_registrar, json_Data_response_registration, json_Data_response_whois\n| project-rename RowData = Data",
+                        "outputStream": "Custom-dossier_whois_CL"
+                    }
                 ]
             }
         },
-
         {
             "type": "Microsoft.Insights/components",
             "apiVersion": "2020-02-02",
