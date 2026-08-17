@@ -220,508 +220,1964 @@
             }
         ],
         "streamInputColumns_whois": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_whois": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_response", "type": "dynamic" },
-            { "name": "data_response_ip_response", "type": "string" },
-            { "name": "data_response_nameservers", "type": "dynamic" },
-            { "name": "data_response_parsed_whois", "type": "string" },
-            { "name": "data_response_raw", "type": "string" },
-            { "name": "data_response_registrant", "type": "string" },
-            { "name": "data_response_registration", "type": "string" },
-            { "name": "data_response_whois", "type": "string" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_ip_response",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_ip_response_country",
+                "type": "string"
+            },
+            {
+                "name": "data_response_ip_response_handle",
+                "type": "string"
+            },
+            {
+                "name": "data_response_ip_response_last_changed",
+                "type": "datetime"
+            },
+            {
+                "name": "data_response_ip_response_name",
+                "type": "string"
+            },
+            {
+                "name": "data_response_ip_response_net_range",
+                "type": "string"
+            },
+            {
+                "name": "data_response_ip_response_net_type",
+                "type": "string"
+            },
+            {
+                "name": "data_response_ip_response_parent",
+                "type": "string"
+            },
+            {
+                "name": "data_response_ip_response_registration",
+                "type": "datetime"
+            },
+            {
+                "name": "data_response_ip_response_source_registery",
+                "type": "string"
+            },
+            {
+                "name": "data_response_nameservers",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_parsed_whois",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_parsed_whois_contacts",
+                "type": "string"
+            },
+            {
+                "name": "data_response_parsed_whois_created_date",
+                "type": "datetime"
+            },
+            {
+                "name": "data_response_parsed_whois_domain",
+                "type": "string"
+            },
+            {
+                "name": "data_response_parsed_whois_expired_date",
+                "type": "datetime"
+            },
+            {
+                "name": "data_response_parsed_whois_name_servers",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_parsed_whois_other_props",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_parsed_whois_other_props_registry_domain_id",
+                "type": "string"
+            },
+            {
+                "name": "data_response_parsed_whois_registrar",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_parsed_whois_registrar_abuse_contact_email",
+                "type": "string"
+            },
+            {
+                "name": "data_response_parsed_whois_registrar_abuse_contact_phone",
+                "type": "string"
+            },
+            {
+                "name": "data_response_parsed_whois_registrar_iana_id",
+                "type": "string"
+            },
+            {
+                "name": "data_response_parsed_whois_registrar_name",
+                "type": "string"
+            },
+            {
+                "name": "data_response_parsed_whois_statuses",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_parsed_whois_updated_date",
+                "type": "datetime"
+            },
+            {
+                "name": "data_response_raw",
+                "type": "string"
+            },
+            {
+                "name": "data_response_registrant",
+                "type": "string"
+            },
+            {
+                "name": "data_response_registration",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_registration_created",
+                "type": "datetime"
+            },
+            {
+                "name": "data_response_registration_expires",
+                "type": "datetime"
+            },
+            {
+                "name": "data_response_registration_registrar",
+                "type": "string"
+            },
+            {
+                "name": "data_response_registration_statuses",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_registration_updated",
+                "type": "datetime"
+            },
+            {
+                "name": "data_response_whois",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_response_whois_date",
+                "type": "datetime"
+            },
+            {
+                "name": "data_response_whois_record",
+                "type": "string"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_whitelist": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_whitelist": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_value", "type": "string" },
-            { "name": "data_whitelisted", "type": "boolean" },
-            { "name": "data_code", "type": "string" },
-            { "name": "data_reason", "type": "string" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_value",
+                "type": "string"
+            },
+            {
+                "name": "data_whitelisted",
+                "type": "boolean"
+            },
+            {
+                "name": "data_code",
+                "type": "string"
+            },
+            {
+                "name": "data_reason",
+                "type": "string"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_tld_risk": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_tld_risk": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_matches", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_matches",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_threat_actor": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "data", "type": "dynamic" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            }
         ],
         "streamOutputColumns_threat_actor": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_actor_description", "type": "string" },
-            { "name": "data_actor_id", "type": "string" },
-            { "name": "data_actor_name", "type": "string" },
-            { "name": "data_customer_first_dns_query", "type": "datetime" },
-            { "name": "data_customer_last_dns_query", "type": "datetime" },
-            { "name": "data_display_name", "type": "string" },
-            { "name": "data_ikb_submitted", "type": "datetime" },
-            { "name": "data_purpose", "type": "dynamic" },
-            { "name": "data_related_count", "type": "real" },
-            { "name": "data_reports", "type": "dynamic" },
-            { "name": "data_ttp", "type": "dynamic" },
-            { "name": "data_ikb_first_classified_malicious", "type": "datetime" },
-            { "name": "data_external_references", "type": "dynamic" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_actor_description",
+                "type": "string"
+            },
+            {
+                "name": "data_actor_id",
+                "type": "string"
+            },
+            {
+                "name": "data_actor_name",
+                "type": "string"
+            },
+            {
+                "name": "data_customer_first_dns_query",
+                "type": "datetime"
+            },
+            {
+                "name": "data_customer_last_dns_query",
+                "type": "datetime"
+            },
+            {
+                "name": "data_display_name",
+                "type": "string"
+            },
+            {
+                "name": "data_ikb_submitted",
+                "type": "datetime"
+            },
+            {
+                "name": "data_purpose",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_related_count",
+                "type": "real"
+            },
+            {
+                "name": "data_reports",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_ttp",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_ikb_first_classified_malicious",
+                "type": "datetime"
+            },
+            {
+                "name": "data_external_references",
+                "type": "dynamic"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_rpz_feeds_records": [
-            { "name": "class", "type": "string" },
-            { "name": "expiration", "type": "datetime" },
-            { "name": "feed_name", "type": "string" },
-            { "name": "indicator", "type": "string" },
-            { "name": "property", "type": "string" },
-            { "name": "threat_level", "type": "real" },
-            { "name": "task_id", "type": "string" },
-            { "name": "detected", "type": "datetime" }
+            {
+                "name": "class",
+                "type": "string"
+            },
+            {
+                "name": "expiration",
+                "type": "datetime"
+            },
+            {
+                "name": "feed_name",
+                "type": "string"
+            },
+            {
+                "name": "indicator",
+                "type": "string"
+            },
+            {
+                "name": "property",
+                "type": "string"
+            },
+            {
+                "name": "threat_level",
+                "type": "real"
+            },
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "detected",
+                "type": "datetime"
+            }
         ],
         "streamOutputColumns_rpz_feeds_records": [
-            { "name": "class", "type": "string" },
-            { "name": "expiration", "type": "datetime" },
-            { "name": "feed_name", "type": "string" },
-            { "name": "indicator", "type": "string" },
-            { "name": "property", "type": "string" },
-            { "name": "threat_level", "type": "real" },
-            { "name": "task_id", "type": "string" },
-            { "name": "detected", "type": "datetime" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "class",
+                "type": "string"
+            },
+            {
+                "name": "expiration",
+                "type": "datetime"
+            },
+            {
+                "name": "feed_name",
+                "type": "string"
+            },
+            {
+                "name": "indicator",
+                "type": "string"
+            },
+            {
+                "name": "property",
+                "type": "string"
+            },
+            {
+                "name": "threat_level",
+                "type": "real"
+            },
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "detected",
+                "type": "datetime"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_rpz_feeds": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_rpz_feeds": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_ptr": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_ptr": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_ptr_record", "type": "string" },
-            { "name": "data_reason", "type": "string" },
-            { "name": "data_status", "type": "string" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_ptr_record",
+                "type": "string"
+            },
+            {
+                "name": "data_reason",
+                "type": "string"
+            },
+            {
+                "name": "data_status",
+                "type": "string"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_nameserver_matches": [
-            { "name": "domain", "type": "string" },
-            { "name": "ns_reputation_confidence", "type": "string" },
-            { "name": "ns_reputation_label", "type": "string" },
-            { "name": "ns_reputation_malicious_counts", "type": "string" },
-            { "name": "ns_reputation_popular", "type": "string" },
-            { "name": "ns_reputation_rare", "type": "string" },
-            { "name": "ns_reputation_raw_score", "type": "string" },
-            { "name": "ns_reputation_score", "type": "string" },
-            { "name": "ns_reputation_total_counts", "type": "string" },
-            { "name": "task_id", "type": "string" }
+            {
+                "name": "domain",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_confidence",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_label",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_malicious_counts",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_popular",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_rare",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_raw_score",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_score",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_total_counts",
+                "type": "string"
+            },
+            {
+                "name": "task_id",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_nameserver_matches": [
-            { "name": "domain", "type": "string" },
-            { "name": "ns_reputation_confidence", "type": "string" },
-            { "name": "ns_reputation_label", "type": "string" },
-            { "name": "ns_reputation_malicious_counts", "type": "string" },
-            { "name": "ns_reputation_popular", "type": "string" },
-            { "name": "ns_reputation_rare", "type": "string" },
-            { "name": "ns_reputation_raw_score", "type": "string" },
-            { "name": "ns_reputation_score", "type": "string" },
-            { "name": "ns_reputation_total_counts", "type": "string" },
-            { "name": "task_id", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "domain",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_confidence",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_label",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_malicious_counts",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_popular",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_rare",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_raw_score",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_score",
+                "type": "string"
+            },
+            {
+                "name": "ns_reputation_total_counts",
+                "type": "string"
+            },
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_nameserver": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_nameserver": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_malware_analysis_v3": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_malware_analysis_v3": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_info", "type": "string" },
-            { "name": "data_reason", "type": "string" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_info",
+                "type": "string"
+            },
+            {
+                "name": "data_reason",
+                "type": "string"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_inforank": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_inforank": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_message", "type": "string" },
-            { "name": "data_domain", "type": "string" },
-            { "name": "data_interval", "type": "string" },
-            { "name": "data_rank", "type": "real" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_message",
+                "type": "string"
+            },
+            {
+                "name": "data_domain",
+                "type": "string"
+            },
+            {
+                "name": "data_interval",
+                "type": "string"
+            },
+            {
+                "name": "data_rank",
+                "type": "real"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_infoblox_web_cat": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_infoblox_web_cat": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_results", "type": "dynamic" },
-            { "name": "data_info", "type": "string" },
-            { "name": "data_reason", "type": "string" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_results",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_info",
+                "type": "string"
+            },
+            {
+                "name": "data_reason",
+                "type": "string"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_geo": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_geo": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_asn_num", "type": "string" },
-            { "name": "data_city", "type": "string" },
-            { "name": "data_country_code", "type": "string" },
-            { "name": "data_country_name", "type": "string" },
-            { "name": "data_isp", "type": "string" },
-            { "name": "data_latitude", "type": "real" },
-            { "name": "data_longitude", "type": "real" },
-            { "name": "data_org", "type": "string" },
-            { "name": "data_postal_code", "type": "string" },
-            { "name": "data_region", "type": "string" },
-            { "name": "data_info", "type": "string" },
-            { "name": "data_reason", "type": "string" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_asn_num",
+                "type": "string"
+            },
+            {
+                "name": "data_city",
+                "type": "string"
+            },
+            {
+                "name": "data_country_code",
+                "type": "string"
+            },
+            {
+                "name": "data_country_name",
+                "type": "string"
+            },
+            {
+                "name": "data_isp",
+                "type": "string"
+            },
+            {
+                "name": "data_latitude",
+                "type": "real"
+            },
+            {
+                "name": "data_longitude",
+                "type": "real"
+            },
+            {
+                "name": "data_org",
+                "type": "string"
+            },
+            {
+                "name": "data_postal_code",
+                "type": "string"
+            },
+            {
+                "name": "data_region",
+                "type": "string"
+            },
+            {
+                "name": "data_info",
+                "type": "string"
+            },
+            {
+                "name": "data_reason",
+                "type": "string"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_dns": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_dns": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_A", "type": "dynamic" },
-            { "name": "data_AAAA", "type": "dynamic" },
-            { "name": "data_CERT", "type": "dynamic" },
-            { "name": "data_CNAME", "type": "dynamic" },
-            { "name": "data_HTTPS", "type": "dynamic" },
-            { "name": "data_MX", "type": "dynamic" },
-            { "name": "data_NS", "type": "dynamic" },
-            { "name": "data_SOA", "type": "dynamic" },
-            { "name": "data_SVCB", "type": "dynamic" },
-            { "name": "data_TSIG", "type": "dynamic" },
-            { "name": "data_TXT", "type": "dynamic" },
-            { "name": "data_rcode", "type": "string" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_A",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_AAAA",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_CERT",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_CNAME",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_HTTPS",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_MX",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_NS",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_SOA",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_SVCB",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_TSIG",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_TXT",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_rcode",
+                "type": "string"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_atp_threat": [
-            { "name": "batch_id", "type": "string" },
-            { "name": "class", "type": "string" },
-            { "name": "confidence", "type": "real" },
-            { "name": "detected", "type": "datetime" },
-            { "name": "dga", "type": "string" },
-            { "name": "domain", "type": "string" },
-            { "name": "expiration", "type": "datetime" },
-            { "name": "full_profile", "type": "string" },
-            { "name": "host", "type": "string" },
-            { "name": "id", "type": "string" },
-            { "name": "imported", "type": "datetime" },
-            { "name": "profile", "type": "string" },
-            { "name": "property", "type": "string" },
-            { "name": "received", "type": "datetime" },
-            { "name": "threat_level", "type": "real" },
-            { "name": "tld", "type": "string" },
-            { "name": "type", "type": "string" },
-            { "name": "task_id", "type": "string" },
-            { "name": "extended", "type": "dynamic" },
-            { "name": "up", "type": "string" },
-            { "name": "url", "type": "string" },
-            { "name": "ip", "type": "string" },
-            { "name": "tlp", "type": "string" },
-            { "name": "confidence_score", "type": "real" },
-            { "name": "confidence_score_rating", "type": "string" },
-            { "name": "confidence_score_vector", "type": "string" },
-            { "name": "risk_score", "type": "real" },
-            { "name": "risk_score_rating", "type": "string" },
-            { "name": "risk_score_vector", "type": "string" },
-            { "name": "threat_score", "type": "real" },
-            { "name": "threat_score_rating", "type": "string" },
-            { "name": "threat_score_vector", "type": "string" },
-            { "name": "target", "type": "string" },
-            { "name": "origin", "type": "string" },
-            { "name": "email", "type": "string" },
-            { "name": "threat_label", "type": "string" }
+            {
+                "name": "batch_id",
+                "type": "string"
+            },
+            {
+                "name": "class",
+                "type": "string"
+            },
+            {
+                "name": "confidence",
+                "type": "real"
+            },
+            {
+                "name": "detected",
+                "type": "datetime"
+            },
+            {
+                "name": "dga",
+                "type": "string"
+            },
+            {
+                "name": "domain",
+                "type": "string"
+            },
+            {
+                "name": "expiration",
+                "type": "datetime"
+            },
+            {
+                "name": "full_profile",
+                "type": "string"
+            },
+            {
+                "name": "host",
+                "type": "string"
+            },
+            {
+                "name": "id",
+                "type": "string"
+            },
+            {
+                "name": "imported",
+                "type": "datetime"
+            },
+            {
+                "name": "profile",
+                "type": "string"
+            },
+            {
+                "name": "property",
+                "type": "string"
+            },
+            {
+                "name": "received",
+                "type": "datetime"
+            },
+            {
+                "name": "threat_level",
+                "type": "real"
+            },
+            {
+                "name": "tld",
+                "type": "string"
+            },
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "extended",
+                "type": "dynamic"
+            },
+            {
+                "name": "up",
+                "type": "string"
+            },
+            {
+                "name": "url",
+                "type": "string"
+            },
+            {
+                "name": "ip",
+                "type": "string"
+            },
+            {
+                "name": "tlp",
+                "type": "string"
+            },
+            {
+                "name": "confidence_score",
+                "type": "real"
+            },
+            {
+                "name": "confidence_score_rating",
+                "type": "string"
+            },
+            {
+                "name": "confidence_score_vector",
+                "type": "string"
+            },
+            {
+                "name": "risk_score",
+                "type": "real"
+            },
+            {
+                "name": "risk_score_rating",
+                "type": "string"
+            },
+            {
+                "name": "risk_score_vector",
+                "type": "string"
+            },
+            {
+                "name": "threat_score",
+                "type": "real"
+            },
+            {
+                "name": "threat_score_rating",
+                "type": "string"
+            },
+            {
+                "name": "threat_score_vector",
+                "type": "string"
+            },
+            {
+                "name": "target",
+                "type": "string"
+            },
+            {
+                "name": "origin",
+                "type": "string"
+            },
+            {
+                "name": "email",
+                "type": "string"
+            },
+            {
+                "name": "threat_label",
+                "type": "string"
+            },
+            {
+                "name": "hash",
+                "type": "string"
+            },
+            {
+                "name": "hash_type",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_atp_threat": [
-            { "name": "batch_id", "type": "string" },
-            { "name": "class", "type": "string" },
-            { "name": "confidence", "type": "real" },
-            { "name": "detected", "type": "datetime" },
-            { "name": "dga", "type": "string" },
-            { "name": "domain", "type": "string" },
-            { "name": "expiration", "type": "datetime" },
-            { "name": "full_profile", "type": "string" },
-            { "name": "host", "type": "string" },
-            { "name": "id_value", "type": "string" },
-            { "name": "imported", "type": "datetime" },
-            { "name": "profile", "type": "string" },
-            { "name": "property", "type": "string" },
-            { "name": "received", "type": "datetime" },
-            { "name": "threat_level", "type": "real" },
-            { "name": "tld", "type": "string" },
-            { "name": "type_value", "type": "string" },
-            { "name": "task_id", "type": "string" },
-            { "name": "extended", "type": "dynamic" },
-            { "name": "extended_surbl_list", "type": "string" },
-            { "name": "extended_extended", "type": "string" },
-            { "name": "extended_ais_consent", "type": "string" },
-            { "name": "extended_cyberint_guid", "type": "string" },
-            { "name": "extended_no_whitelist", "type": "string" },
-            { "name": "extended_notes", "type": "string" },
-            { "name": "extended_reason", "type": "string" },
-            { "name": "extended_attack_chain", "type": "string" },
-            { "name": "extended_protocol", "type": "string" },
-            { "name": "extended_references", "type": "string" },
-            { "name": "extended_confidence_score", "type": "string" },
-            { "name": "extended_risk_score", "type": "string" },
-            { "name": "extended_threat_score", "type": "string" },
-            { "name": "extended_from_email", "type": "string" },
-            { "name": "extended_subject_line", "type": "string" },
-            { "name": "extended_email_id", "type": "string" },
-            { "name": "extended_processor", "type": "string" },
-            { "name": "extended_provider", "type": "string" },
-            { "name": "extended_submitter", "type": "string" },
-            { "name": "extended_sample_sha256", "type": "string" },
-            { "name": "extended_comments", "type": "string" },
-            { "name": "up", "type": "string" },
-            { "name": "url", "type": "string" },
-            { "name": "ip", "type": "string" },
-            { "name": "tlp", "type": "string" },
-            { "name": "confidence_score", "type": "real" },
-            { "name": "confidence_score_rating", "type": "string" },
-            { "name": "confidence_score_vector", "type": "string" },
-            { "name": "risk_score", "type": "real" },
-            { "name": "risk_score_rating", "type": "string" },
-            { "name": "risk_score_vector", "type": "string" },
-            { "name": "threat_score", "type": "real" },
-            { "name": "threat_score_rating", "type": "string" },
-            { "name": "threat_score_vector", "type": "string" },
-            { "name": "target", "type": "string" },
-            { "name": "origin", "type": "string" },
-            { "name": "email", "type": "string" },
-            { "name": "threat_label", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "batch_id",
+                "type": "string"
+            },
+            {
+                "name": "class",
+                "type": "string"
+            },
+            {
+                "name": "confidence",
+                "type": "real"
+            },
+            {
+                "name": "detected",
+                "type": "datetime"
+            },
+            {
+                "name": "dga",
+                "type": "string"
+            },
+            {
+                "name": "domain",
+                "type": "string"
+            },
+            {
+                "name": "expiration",
+                "type": "datetime"
+            },
+            {
+                "name": "full_profile",
+                "type": "string"
+            },
+            {
+                "name": "host",
+                "type": "string"
+            },
+            {
+                "name": "id_value",
+                "type": "string"
+            },
+            {
+                "name": "imported",
+                "type": "datetime"
+            },
+            {
+                "name": "profile",
+                "type": "string"
+            },
+            {
+                "name": "property",
+                "type": "string"
+            },
+            {
+                "name": "received",
+                "type": "datetime"
+            },
+            {
+                "name": "threat_level",
+                "type": "real"
+            },
+            {
+                "name": "tld",
+                "type": "string"
+            },
+            {
+                "name": "type_value",
+                "type": "string"
+            },
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "extended",
+                "type": "dynamic"
+            },
+            {
+                "name": "extended_surbl_list",
+                "type": "string"
+            },
+            {
+                "name": "extended_extended",
+                "type": "string"
+            },
+            {
+                "name": "extended_ais_consent",
+                "type": "string"
+            },
+            {
+                "name": "extended_cyberint_guid",
+                "type": "string"
+            },
+            {
+                "name": "extended_no_whitelist",
+                "type": "string"
+            },
+            {
+                "name": "extended_notes",
+                "type": "string"
+            },
+            {
+                "name": "extended_reason",
+                "type": "string"
+            },
+            {
+                "name": "extended_attack_chain",
+                "type": "string"
+            },
+            {
+                "name": "extended_protocol",
+                "type": "string"
+            },
+            {
+                "name": "extended_references",
+                "type": "string"
+            },
+            {
+                "name": "extended_confidence_score",
+                "type": "string"
+            },
+            {
+                "name": "extended_risk_score",
+                "type": "string"
+            },
+            {
+                "name": "extended_threat_score",
+                "type": "string"
+            },
+            {
+                "name": "extended_from_email",
+                "type": "string"
+            },
+            {
+                "name": "extended_subject_line",
+                "type": "string"
+            },
+            {
+                "name": "extended_email_id",
+                "type": "string"
+            },
+            {
+                "name": "extended_processor",
+                "type": "string"
+            },
+            {
+                "name": "extended_provider",
+                "type": "string"
+            },
+            {
+                "name": "extended_submitter",
+                "type": "string"
+            },
+            {
+                "name": "extended_sample_sha256",
+                "type": "string"
+            },
+            {
+                "name": "extended_comments",
+                "type": "string"
+            },
+            {
+                "name": "up",
+                "type": "string"
+            },
+            {
+                "name": "url",
+                "type": "string"
+            },
+            {
+                "name": "ip",
+                "type": "string"
+            },
+            {
+                "name": "tlp",
+                "type": "string"
+            },
+            {
+                "name": "confidence_score",
+                "type": "real"
+            },
+            {
+                "name": "confidence_score_rating",
+                "type": "string"
+            },
+            {
+                "name": "confidence_score_vector",
+                "type": "string"
+            },
+            {
+                "name": "risk_score",
+                "type": "real"
+            },
+            {
+                "name": "risk_score_rating",
+                "type": "string"
+            },
+            {
+                "name": "risk_score_vector",
+                "type": "string"
+            },
+            {
+                "name": "threat_score",
+                "type": "real"
+            },
+            {
+                "name": "threat_score_rating",
+                "type": "string"
+            },
+            {
+                "name": "threat_score_vector",
+                "type": "string"
+            },
+            {
+                "name": "target",
+                "type": "string"
+            },
+            {
+                "name": "origin",
+                "type": "string"
+            },
+            {
+                "name": "email",
+                "type": "string"
+            },
+            {
+                "name": "threat_label",
+                "type": "string"
+            },
+            {
+                "name": "hash",
+                "type": "string"
+            },
+            {
+                "name": "hash_type",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "streamInputColumns_atp": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "status", "type": "string" },
-            { "name": "time", "type": "real" },
-            { "name": "v", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "status_message_for_dossier", "type": "string" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time",
+                "type": "real"
+            },
+            {
+                "name": "v",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            }
         ],
         "streamOutputColumns_atp": [
-            { "name": "task_id", "type": "string" },
-            { "name": "params", "type": "dynamic" },
-            { "name": "params_type", "type": "string" },
-            { "name": "params_target", "type": "string" },
-            { "name": "params_source", "type": "string" },
-            { "name": "status", "type": "string" },
-            { "name": "time_value", "type": "real" },
-            { "name": "v_value", "type": "string" },
-            { "name": "data", "type": "dynamic" },
-            { "name": "data_record_count", "type": "real" },
-            { "name": "data_attack_chain", "type": "dynamic" },
-            { "name": "data_attack_chain_collection", "type": "dynamic" },
-            { "name": "data_attack_chain_command_and_control", "type": "string" },
-            { "name": "data_attack_chain_credential_access", "type": "dynamic" },
-            { "name": "data_attack_chain_defense_evasion", "type": "dynamic" },
-            { "name": "data_attack_chain_discovery", "type": "string" },
-            { "name": "data_attack_chain_execution", "type": "dynamic" },
-            { "name": "data_attack_chain_exfiltration", "type": "string" },
-            { "name": "data_attack_chain_impact", "type": "string" },
-            { "name": "data_attack_chain_initial_access", "type": "dynamic" },
-            { "name": "data_attack_chain_lateral_movement", "type": "string" },
-            { "name": "data_attack_chain_persistence", "type": "string" },
-            { "name": "data_attack_chain_privilege_escalation", "type": "string" },
-            { "name": "status_message_for_dossier", "type": "string" },
-            { "name": "TimeGenerated", "type": "datetime" }
+            {
+                "name": "task_id",
+                "type": "string"
+            },
+            {
+                "name": "params",
+                "type": "dynamic"
+            },
+            {
+                "name": "params_type",
+                "type": "string"
+            },
+            {
+                "name": "params_target",
+                "type": "string"
+            },
+            {
+                "name": "params_source",
+                "type": "string"
+            },
+            {
+                "name": "status",
+                "type": "string"
+            },
+            {
+                "name": "time_value",
+                "type": "real"
+            },
+            {
+                "name": "v_value",
+                "type": "string"
+            },
+            {
+                "name": "data",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_record_count",
+                "type": "real"
+            },
+            {
+                "name": "data_attack_chain",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_attack_chain_collection",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_attack_chain_command_and_control",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_attack_chain_credential_access",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_attack_chain_defense_evasion",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_attack_chain_discovery",
+                "type": "string"
+            },
+            {
+                "name": "data_attack_chain_execution",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_attack_chain_exfiltration",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_attack_chain_impact",
+                "type": "string"
+            },
+            {
+                "name": "data_attack_chain_initial_access",
+                "type": "dynamic"
+            },
+            {
+                "name": "data_attack_chain_lateral_movement",
+                "type": "string"
+            },
+            {
+                "name": "data_attack_chain_persistence",
+                "type": "string"
+            },
+            {
+                "name": "data_attack_chain_privilege_escalation",
+                "type": "string"
+            },
+            {
+                "name": "status_message_for_dossier",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            }
         ],
         "dataColumns_atp": [
             {
@@ -1455,7 +2911,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend json_data_attack_chain = parse_json(json_data['attack_chain'])\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_record_count = toreal(json_data['record_count']), data_attack_chain_collection = todynamic(json_data_attack_chain['collection']), data_attack_chain_command_and_control = tostring(json_data_attack_chain['command_and_control']), data_attack_chain_credential_access = todynamic(json_data_attack_chain['credential_access']), data_attack_chain_defense_evasion = todynamic(json_data_attack_chain['defense_evasion']), data_attack_chain_discovery = tostring(json_data_attack_chain['discovery']), data_attack_chain_execution = todynamic(json_data_attack_chain['execution']), data_attack_chain_exfiltration = tostring(json_data_attack_chain['exfiltration']), data_attack_chain_impact = tostring(json_data_attack_chain['impact']), data_attack_chain_initial_access = todynamic(json_data_attack_chain['initial_access']), data_attack_chain_lateral_movement = tostring(json_data_attack_chain['lateral_movement']), data_attack_chain_persistence = tostring(json_data_attack_chain['persistence']), data_attack_chain_privilege_escalation = tostring(json_data_attack_chain['privilege_escalation'])\n| project-away json_params, params, ['time'], ['v'], json_data, data, json_data_attack_chain",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend json_data_attack_chain = parse_json(json_data['attack_chain'])\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_record_count = toreal(json_data['record_count']), data_attack_chain_collection = todynamic(json_data_attack_chain['collection']), data_attack_chain_command_and_control = todynamic(json_data_attack_chain['command_and_control']), data_attack_chain_credential_access = todynamic(json_data_attack_chain['credential_access']), data_attack_chain_defense_evasion = todynamic(json_data_attack_chain['defense_evasion']), data_attack_chain_discovery = tostring(json_data_attack_chain['discovery']), data_attack_chain_execution = todynamic(json_data_attack_chain['execution']), data_attack_chain_exfiltration = todynamic(json_data_attack_chain['exfiltration']), data_attack_chain_impact = tostring(json_data_attack_chain['impact']), data_attack_chain_initial_access = todynamic(json_data_attack_chain['initial_access']), data_attack_chain_lateral_movement = tostring(json_data_attack_chain['lateral_movement']), data_attack_chain_persistence = tostring(json_data_attack_chain['persistence']), data_attack_chain_privilege_escalation = tostring(json_data_attack_chain['privilege_escalation'])\n| project-away json_params, params, ['time'], ['v'], json_data, data, json_data_attack_chain",
                         "outputStream": "Custom-dossier_atp_CL"
                     },
                     {
@@ -1997,7 +3453,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend json_data_response = parse_json(json_data['response'])\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_response_ip_response = tostring(json_data_response['ip_response']), data_response_nameservers = todynamic(json_data_response['nameservers']), data_response_parsed_whois = tostring(json_data_response['parsed_whois']), data_response_raw = tostring(json_data_response['raw']), data_response_registrant = tostring(json_data_response['registrant']), data_response_registration = tostring(json_data_response['registration']), data_response_whois = tostring(json_data_response['whois'])\n| project-away json_params, params, ['time'], ['v'], json_data, data, json_data_response",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend json_data_response = parse_json(json_data['response'])\n| extend json_data_response_ip_response = parse_json(json_data_response['ip_response']), json_data_response_parsed_whois = parse_json(json_data_response['parsed_whois']), json_data_response_registration = parse_json(json_data_response['registration']), json_data_response_whois = parse_json(json_data_response['whois'])\n| extend json_data_response_parsed_whois_other_props = parse_json(json_data_response_parsed_whois['other_properties']), json_data_response_parsed_whois_registrar = parse_json(json_data_response_parsed_whois['registrar'])\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_response_ip_response_country = tostring(json_data_response_ip_response['country']), data_response_ip_response_handle = tostring(json_data_response_ip_response['handle']), data_response_ip_response_last_changed = todatetime(json_data_response_ip_response['last_changed']), data_response_ip_response_name = tostring(json_data_response_ip_response['name']), data_response_ip_response_net_range = tostring(json_data_response_ip_response['net_range']), data_response_ip_response_net_type = tostring(json_data_response_ip_response['net_type']), data_response_ip_response_parent = tostring(json_data_response_ip_response['parent']), data_response_ip_response_registration = todatetime(json_data_response_ip_response['registration']), data_response_ip_response_source_registery = tostring(json_data_response_ip_response['source_registery']), data_response_nameservers = todynamic(json_data_response['nameservers']), data_response_parsed_whois_contacts = tostring(json_data_response_parsed_whois['contacts']), data_response_parsed_whois_created_date = todatetime(json_data_response_parsed_whois['created_date']), data_response_parsed_whois_domain = tostring(json_data_response_parsed_whois['domain']), data_response_parsed_whois_expired_date = todatetime(json_data_response_parsed_whois['expired_date']), data_response_parsed_whois_name_servers = todynamic(json_data_response_parsed_whois['name_servers']), data_response_parsed_whois_other_props_registry_domain_id = tostring(json_data_response_parsed_whois_other_props['registry_domain_id']), data_response_parsed_whois_registrar_abuse_contact_email = tostring(json_data_response_parsed_whois_registrar['abuse_contact_email']), data_response_parsed_whois_registrar_abuse_contact_phone = tostring(json_data_response_parsed_whois_registrar['abuse_contact_phone']), data_response_parsed_whois_registrar_iana_id = tostring(json_data_response_parsed_whois_registrar['iana_id']), data_response_parsed_whois_registrar_name = tostring(json_data_response_parsed_whois_registrar['name']), data_response_parsed_whois_statuses = todynamic(json_data_response_parsed_whois['statuses']), data_response_parsed_whois_updated_date = todatetime(json_data_response_parsed_whois['updated_date']), data_response_raw = tostring(json_data_response['raw']), data_response_registrant = tostring(json_data_response['registrant']), data_response_registration_created = todatetime(json_data_response_registration['created']), data_response_registration_expires = todatetime(json_data_response_registration['expires']), data_response_registration_registrar = tostring(json_data_response_registration['registrar']), data_response_registration_statuses = todynamic(json_data_response_registration['statuses']), data_response_registration_updated = todatetime(json_data_response_registration['updated']), data_response_whois_date = todatetime(json_data_response_whois['date']), data_response_whois_record = tostring(json_data_response_whois['record'])\n| project-away json_params, params, ['time'], ['v'], json_data, data, json_data_response, json_data_response_ip_response, json_data_response_parsed_whois, json_data_response_parsed_whois_other_props, json_data_response_parsed_whois_registrar, json_data_response_registration, json_data_response_whois",
                         "outputStream": "Custom-dossier_whois_CL"
                     }
                 ]
