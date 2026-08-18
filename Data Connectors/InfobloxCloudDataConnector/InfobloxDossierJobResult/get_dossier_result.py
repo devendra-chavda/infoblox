@@ -169,7 +169,11 @@ class DossierGetResult(Utils):
                     result_data = self.store_data_in_separate_table("records", result_data, source)
                 elif (source == "nameserver") and ("matches" in result_data["data"]):
                     result_data = self.store_data_in_separate_table("matches", result_data, source)
-                elif source == "threat_actor":
+                elif (
+                    source == "threat_actor"
+                    and "data" in result_data
+                    and "related_indicators" in result_data["data"]
+                ):
                     del result_data["data"]["related_indicators"]
                 applogger.info(
                     self.log_format.format(
