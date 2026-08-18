@@ -175,2484 +175,6 @@
         "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('Workspace'))]",
         "scope": "[concat(replace(environment().portal, 'portal', 'monitor'), '/.default')]",
         "dceName": "InfobloxDossierDCE",
-        "envelopeColumns": [
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            },
-            {
-                "name": "TaskId",
-                "type": "string"
-            },
-            {
-                "name": "ParamsType",
-                "type": "string"
-            },
-            {
-                "name": "ParamsTarget",
-                "type": "string"
-            },
-            {
-                "name": "ParamsSource",
-                "type": "string"
-            },
-            {
-                "name": "Status",
-                "type": "string"
-            },
-            {
-                "name": "StatusMessage",
-                "type": "string"
-            },
-            {
-                "name": "TimeTakenMs",
-                "type": "real"
-            },
-            {
-                "name": "ApiVersion",
-                "type": "string"
-            }
-        ],
-        "dataColumn": [
-            {
-                "name": "Data",
-                "type": "dynamic"
-            }
-        ],
-        "streamInputColumns_whois": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_whois": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_ip_response",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_ip_response_country",
-                "type": "string"
-            },
-            {
-                "name": "data_response_ip_response_handle",
-                "type": "string"
-            },
-            {
-                "name": "data_response_ip_response_last_changed",
-                "type": "datetime"
-            },
-            {
-                "name": "data_response_ip_response_name",
-                "type": "string"
-            },
-            {
-                "name": "data_response_ip_response_net_range",
-                "type": "string"
-            },
-            {
-                "name": "data_response_ip_response_net_type",
-                "type": "string"
-            },
-            {
-                "name": "data_response_ip_response_parent",
-                "type": "string"
-            },
-            {
-                "name": "data_response_ip_response_registration",
-                "type": "datetime"
-            },
-            {
-                "name": "data_response_ip_response_source_registery",
-                "type": "string"
-            },
-            {
-                "name": "data_response_nameservers",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_parsed_whois",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_parsed_whois_contacts",
-                "type": "string"
-            },
-            {
-                "name": "data_response_parsed_whois_created_date",
-                "type": "datetime"
-            },
-            {
-                "name": "data_response_parsed_whois_domain",
-                "type": "string"
-            },
-            {
-                "name": "data_response_parsed_whois_expired_date",
-                "type": "datetime"
-            },
-            {
-                "name": "data_response_parsed_whois_name_servers",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_parsed_whois_other_props",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_parsed_whois_other_props_registry_domain_id",
-                "type": "string"
-            },
-            {
-                "name": "data_response_parsed_whois_registrar",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_parsed_whois_registrar_abuse_contact_email",
-                "type": "string"
-            },
-            {
-                "name": "data_response_parsed_whois_registrar_abuse_contact_phone",
-                "type": "string"
-            },
-            {
-                "name": "data_response_parsed_whois_registrar_iana_id",
-                "type": "string"
-            },
-            {
-                "name": "data_response_parsed_whois_registrar_name",
-                "type": "string"
-            },
-            {
-                "name": "data_response_parsed_whois_statuses",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_parsed_whois_updated_date",
-                "type": "datetime"
-            },
-            {
-                "name": "data_response_raw",
-                "type": "string"
-            },
-            {
-                "name": "data_response_registrant",
-                "type": "string"
-            },
-            {
-                "name": "data_response_registration",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_registration_created",
-                "type": "datetime"
-            },
-            {
-                "name": "data_response_registration_expires",
-                "type": "datetime"
-            },
-            {
-                "name": "data_response_registration_registrar",
-                "type": "string"
-            },
-            {
-                "name": "data_response_registration_statuses",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_registration_updated",
-                "type": "datetime"
-            },
-            {
-                "name": "data_response_whois",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_response_whois_date",
-                "type": "datetime"
-            },
-            {
-                "name": "data_response_whois_record",
-                "type": "string"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_whitelist": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_whitelist": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_value",
-                "type": "string"
-            },
-            {
-                "name": "data_whitelisted",
-                "type": "boolean"
-            },
-            {
-                "name": "data_code",
-                "type": "string"
-            },
-            {
-                "name": "data_reason",
-                "type": "string"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_tld_risk": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_tld_risk": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_matches",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_threat_actor": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            }
-        ],
-        "streamOutputColumns_threat_actor": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_actor_description",
-                "type": "string"
-            },
-            {
-                "name": "data_actor_id",
-                "type": "string"
-            },
-            {
-                "name": "data_actor_name",
-                "type": "string"
-            },
-            {
-                "name": "data_customer_first_dns_query",
-                "type": "datetime"
-            },
-            {
-                "name": "data_customer_last_dns_query",
-                "type": "datetime"
-            },
-            {
-                "name": "data_display_name",
-                "type": "string"
-            },
-            {
-                "name": "data_ikb_submitted",
-                "type": "datetime"
-            },
-            {
-                "name": "data_purpose",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_related_count",
-                "type": "real"
-            },
-            {
-                "name": "data_reports",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_ttp",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_ikb_first_classified_malicious",
-                "type": "datetime"
-            },
-            {
-                "name": "data_external_references",
-                "type": "dynamic"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_rpz_feeds_records": [
-            {
-                "name": "class",
-                "type": "string"
-            },
-            {
-                "name": "expiration",
-                "type": "datetime"
-            },
-            {
-                "name": "feed_name",
-                "type": "string"
-            },
-            {
-                "name": "indicator",
-                "type": "string"
-            },
-            {
-                "name": "property",
-                "type": "string"
-            },
-            {
-                "name": "threat_level",
-                "type": "real"
-            },
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "detected",
-                "type": "datetime"
-            }
-        ],
-        "streamOutputColumns_rpz_feeds_records": [
-            {
-                "name": "class",
-                "type": "string"
-            },
-            {
-                "name": "expiration",
-                "type": "datetime"
-            },
-            {
-                "name": "feed_name",
-                "type": "string"
-            },
-            {
-                "name": "indicator",
-                "type": "string"
-            },
-            {
-                "name": "property",
-                "type": "string"
-            },
-            {
-                "name": "threat_level",
-                "type": "real"
-            },
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "detected",
-                "type": "datetime"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_rpz_feeds": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_rpz_feeds": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_ptr": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_ptr": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_ptr_record",
-                "type": "string"
-            },
-            {
-                "name": "data_reason",
-                "type": "string"
-            },
-            {
-                "name": "data_status",
-                "type": "string"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_nameserver_matches": [
-            {
-                "name": "domain",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_confidence",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_label",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_malicious_counts",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_popular",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_rare",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_raw_score",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_score",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_total_counts",
-                "type": "string"
-            },
-            {
-                "name": "task_id",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_nameserver_matches": [
-            {
-                "name": "domain",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_confidence",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_label",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_malicious_counts",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_popular",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_rare",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_raw_score",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_score",
-                "type": "string"
-            },
-            {
-                "name": "ns_reputation_total_counts",
-                "type": "string"
-            },
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_nameserver": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_nameserver": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_malware_analysis_v3": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_malware_analysis_v3": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_info",
-                "type": "string"
-            },
-            {
-                "name": "data_reason",
-                "type": "string"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_inforank": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_inforank": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_message",
-                "type": "string"
-            },
-            {
-                "name": "data_domain",
-                "type": "string"
-            },
-            {
-                "name": "data_interval",
-                "type": "string"
-            },
-            {
-                "name": "data_rank",
-                "type": "real"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_infoblox_web_cat": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_infoblox_web_cat": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_results",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_info",
-                "type": "string"
-            },
-            {
-                "name": "data_reason",
-                "type": "string"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_geo": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_geo": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_asn_num",
-                "type": "string"
-            },
-            {
-                "name": "data_city",
-                "type": "string"
-            },
-            {
-                "name": "data_country_code",
-                "type": "string"
-            },
-            {
-                "name": "data_country_name",
-                "type": "string"
-            },
-            {
-                "name": "data_isp",
-                "type": "string"
-            },
-            {
-                "name": "data_latitude",
-                "type": "real"
-            },
-            {
-                "name": "data_longitude",
-                "type": "real"
-            },
-            {
-                "name": "data_org",
-                "type": "string"
-            },
-            {
-                "name": "data_postal_code",
-                "type": "string"
-            },
-            {
-                "name": "data_region",
-                "type": "string"
-            },
-            {
-                "name": "data_info",
-                "type": "string"
-            },
-            {
-                "name": "data_reason",
-                "type": "string"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_dns": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_dns": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_A",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_AAAA",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_CERT",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_CNAME",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_HTTPS",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_MX",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_NS",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_SOA",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_SVCB",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_TSIG",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_TXT",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_rcode",
-                "type": "string"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_atp_threat": [
-            {
-                "name": "batch_id",
-                "type": "string"
-            },
-            {
-                "name": "class",
-                "type": "string"
-            },
-            {
-                "name": "confidence",
-                "type": "real"
-            },
-            {
-                "name": "detected",
-                "type": "datetime"
-            },
-            {
-                "name": "dga",
-                "type": "string"
-            },
-            {
-                "name": "domain",
-                "type": "string"
-            },
-            {
-                "name": "expiration",
-                "type": "datetime"
-            },
-            {
-                "name": "full_profile",
-                "type": "string"
-            },
-            {
-                "name": "host",
-                "type": "string"
-            },
-            {
-                "name": "id",
-                "type": "string"
-            },
-            {
-                "name": "imported",
-                "type": "datetime"
-            },
-            {
-                "name": "profile",
-                "type": "string"
-            },
-            {
-                "name": "property",
-                "type": "string"
-            },
-            {
-                "name": "received",
-                "type": "datetime"
-            },
-            {
-                "name": "threat_level",
-                "type": "real"
-            },
-            {
-                "name": "tld",
-                "type": "string"
-            },
-            {
-                "name": "type",
-                "type": "string"
-            },
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "extended",
-                "type": "dynamic"
-            },
-            {
-                "name": "up",
-                "type": "string"
-            },
-            {
-                "name": "url",
-                "type": "string"
-            },
-            {
-                "name": "ip",
-                "type": "string"
-            },
-            {
-                "name": "tlp",
-                "type": "string"
-            },
-            {
-                "name": "confidence_score",
-                "type": "real"
-            },
-            {
-                "name": "confidence_score_rating",
-                "type": "string"
-            },
-            {
-                "name": "confidence_score_vector",
-                "type": "string"
-            },
-            {
-                "name": "risk_score",
-                "type": "real"
-            },
-            {
-                "name": "risk_score_rating",
-                "type": "string"
-            },
-            {
-                "name": "risk_score_vector",
-                "type": "string"
-            },
-            {
-                "name": "threat_score",
-                "type": "real"
-            },
-            {
-                "name": "threat_score_rating",
-                "type": "string"
-            },
-            {
-                "name": "threat_score_vector",
-                "type": "string"
-            },
-            {
-                "name": "target",
-                "type": "string"
-            },
-            {
-                "name": "origin",
-                "type": "string"
-            },
-            {
-                "name": "email",
-                "type": "string"
-            },
-            {
-                "name": "threat_label",
-                "type": "string"
-            },
-            {
-                "name": "hash",
-                "type": "string"
-            },
-            {
-                "name": "hash_type",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_atp_threat": [
-            {
-                "name": "batch_id",
-                "type": "string"
-            },
-            {
-                "name": "class",
-                "type": "string"
-            },
-            {
-                "name": "confidence",
-                "type": "real"
-            },
-            {
-                "name": "detected",
-                "type": "datetime"
-            },
-            {
-                "name": "dga",
-                "type": "string"
-            },
-            {
-                "name": "domain",
-                "type": "string"
-            },
-            {
-                "name": "expiration",
-                "type": "datetime"
-            },
-            {
-                "name": "full_profile",
-                "type": "string"
-            },
-            {
-                "name": "host",
-                "type": "string"
-            },
-            {
-                "name": "id_value",
-                "type": "string"
-            },
-            {
-                "name": "imported",
-                "type": "datetime"
-            },
-            {
-                "name": "profile",
-                "type": "string"
-            },
-            {
-                "name": "property",
-                "type": "string"
-            },
-            {
-                "name": "received",
-                "type": "datetime"
-            },
-            {
-                "name": "threat_level",
-                "type": "real"
-            },
-            {
-                "name": "tld",
-                "type": "string"
-            },
-            {
-                "name": "type_value",
-                "type": "string"
-            },
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "extended",
-                "type": "dynamic"
-            },
-            {
-                "name": "extended_surbl_list",
-                "type": "string"
-            },
-            {
-                "name": "extended_extended",
-                "type": "string"
-            },
-            {
-                "name": "extended_ais_consent",
-                "type": "string"
-            },
-            {
-                "name": "extended_cyberint_guid",
-                "type": "string"
-            },
-            {
-                "name": "extended_no_whitelist",
-                "type": "string"
-            },
-            {
-                "name": "extended_notes",
-                "type": "string"
-            },
-            {
-                "name": "extended_reason",
-                "type": "string"
-            },
-            {
-                "name": "extended_attack_chain",
-                "type": "string"
-            },
-            {
-                "name": "extended_protocol",
-                "type": "string"
-            },
-            {
-                "name": "extended_references",
-                "type": "string"
-            },
-            {
-                "name": "extended_confidence_score",
-                "type": "string"
-            },
-            {
-                "name": "extended_risk_score",
-                "type": "string"
-            },
-            {
-                "name": "extended_threat_score",
-                "type": "string"
-            },
-            {
-                "name": "extended_from_email",
-                "type": "string"
-            },
-            {
-                "name": "extended_subject_line",
-                "type": "string"
-            },
-            {
-                "name": "extended_email_id",
-                "type": "string"
-            },
-            {
-                "name": "extended_processor",
-                "type": "string"
-            },
-            {
-                "name": "extended_provider",
-                "type": "string"
-            },
-            {
-                "name": "extended_submitter",
-                "type": "string"
-            },
-            {
-                "name": "extended_sample_sha256",
-                "type": "string"
-            },
-            {
-                "name": "extended_comments",
-                "type": "string"
-            },
-            {
-                "name": "up",
-                "type": "string"
-            },
-            {
-                "name": "url",
-                "type": "string"
-            },
-            {
-                "name": "ip",
-                "type": "string"
-            },
-            {
-                "name": "tlp",
-                "type": "string"
-            },
-            {
-                "name": "confidence_score",
-                "type": "real"
-            },
-            {
-                "name": "confidence_score_rating",
-                "type": "string"
-            },
-            {
-                "name": "confidence_score_vector",
-                "type": "string"
-            },
-            {
-                "name": "risk_score",
-                "type": "real"
-            },
-            {
-                "name": "risk_score_rating",
-                "type": "string"
-            },
-            {
-                "name": "risk_score_vector",
-                "type": "string"
-            },
-            {
-                "name": "threat_score",
-                "type": "real"
-            },
-            {
-                "name": "threat_score_rating",
-                "type": "string"
-            },
-            {
-                "name": "threat_score_vector",
-                "type": "string"
-            },
-            {
-                "name": "target",
-                "type": "string"
-            },
-            {
-                "name": "origin",
-                "type": "string"
-            },
-            {
-                "name": "email",
-                "type": "string"
-            },
-            {
-                "name": "threat_label",
-                "type": "string"
-            },
-            {
-                "name": "hash",
-                "type": "string"
-            },
-            {
-                "name": "hash_type",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "streamInputColumns_atp": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time",
-                "type": "real"
-            },
-            {
-                "name": "v",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            }
-        ],
-        "streamOutputColumns_atp": [
-            {
-                "name": "task_id",
-                "type": "string"
-            },
-            {
-                "name": "params",
-                "type": "dynamic"
-            },
-            {
-                "name": "params_type",
-                "type": "string"
-            },
-            {
-                "name": "params_target",
-                "type": "string"
-            },
-            {
-                "name": "params_source",
-                "type": "string"
-            },
-            {
-                "name": "status",
-                "type": "string"
-            },
-            {
-                "name": "time_value",
-                "type": "real"
-            },
-            {
-                "name": "v_value",
-                "type": "string"
-            },
-            {
-                "name": "data",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_record_count",
-                "type": "real"
-            },
-            {
-                "name": "data_attack_chain",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_attack_chain_collection",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_attack_chain_command_and_control",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_attack_chain_credential_access",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_attack_chain_defense_evasion",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_attack_chain_discovery",
-                "type": "string"
-            },
-            {
-                "name": "data_attack_chain_execution",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_attack_chain_exfiltration",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_attack_chain_impact",
-                "type": "string"
-            },
-            {
-                "name": "data_attack_chain_initial_access",
-                "type": "dynamic"
-            },
-            {
-                "name": "data_attack_chain_lateral_movement",
-                "type": "string"
-            },
-            {
-                "name": "data_attack_chain_persistence",
-                "type": "string"
-            },
-            {
-                "name": "data_attack_chain_privilege_escalation",
-                "type": "string"
-            },
-            {
-                "name": "status_message_for_dossier",
-                "type": "string"
-            },
-            {
-                "name": "TimeGenerated",
-                "type": "datetime"
-            }
-        ],
-        "dataColumns_atp": [
-            {
-                "name": "Data_record_count",
-                "type": "real"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_atp_threat": [
-            {
-                "name": "Data_batch_id",
-                "type": "string"
-            },
-            {
-                "name": "Data_class",
-                "type": "string"
-            },
-            {
-                "name": "Data_confidence",
-                "type": "real"
-            },
-            {
-                "name": "Data_detected",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_dga",
-                "type": "string"
-            },
-            {
-                "name": "Data_domain",
-                "type": "string"
-            },
-            {
-                "name": "Data_expiration",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_full_profile",
-                "type": "string"
-            },
-            {
-                "name": "Data_host",
-                "type": "string"
-            },
-            {
-                "name": "Data_id",
-                "type": "string"
-            },
-            {
-                "name": "Data_imported",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_profile",
-                "type": "string"
-            },
-            {
-                "name": "Data_property",
-                "type": "string"
-            },
-            {
-                "name": "Data_received",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_threat_level",
-                "type": "real"
-            },
-            {
-                "name": "Data_tld",
-                "type": "string"
-            },
-            {
-                "name": "Data_type",
-                "type": "string"
-            },
-            {
-                "name": "Data_extended_surbl_list",
-                "type": "string"
-            },
-            {
-                "name": "Data_extended_extended",
-                "type": "string"
-            },
-            {
-                "name": "Data_up",
-                "type": "string"
-            },
-            {
-                "name": "Data_url",
-                "type": "string"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_dns": [
-            {
-                "name": "Data_A",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_AAAA",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_CERT",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_CNAME",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_HTTPS",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_MX",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_NS",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_SOA",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_SVCB",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_TSIG",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_TXT",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_rcode",
-                "type": "string"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_geo": [
-            {
-                "name": "Data_asn_num",
-                "type": "string"
-            },
-            {
-                "name": "Data_city",
-                "type": "string"
-            },
-            {
-                "name": "Data_country_code",
-                "type": "string"
-            },
-            {
-                "name": "Data_country_name",
-                "type": "string"
-            },
-            {
-                "name": "Data_isp",
-                "type": "string"
-            },
-            {
-                "name": "Data_latitude",
-                "type": "real"
-            },
-            {
-                "name": "Data_longitude",
-                "type": "real"
-            },
-            {
-                "name": "Data_org",
-                "type": "string"
-            },
-            {
-                "name": "Data_postal_code",
-                "type": "string"
-            },
-            {
-                "name": "Data_region",
-                "type": "string"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_infoblox_web_cat": [
-            {
-                "name": "Data_results",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_info",
-                "type": "string"
-            },
-            {
-                "name": "Data_reason",
-                "type": "string"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_inforank": [
-            {
-                "name": "Data_message",
-                "type": "string"
-            },
-            {
-                "name": "Data_domain",
-                "type": "string"
-            },
-            {
-                "name": "Data_interval",
-                "type": "string"
-            },
-            {
-                "name": "Data_rank",
-                "type": "real"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_malware_analysis_v3": [
-            {
-                "name": "Data_info",
-                "type": "string"
-            },
-            {
-                "name": "Data_reason",
-                "type": "string"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_nameserver_matches": [
-            {
-                "name": "Data_domain",
-                "type": "string"
-            },
-            {
-                "name": "Data_ns_reputation_confidence",
-                "type": "string"
-            },
-            {
-                "name": "Data_ns_reputation_label",
-                "type": "string"
-            },
-            {
-                "name": "Data_ns_reputation_malicious_counts",
-                "type": "string"
-            },
-            {
-                "name": "Data_ns_reputation_popular",
-                "type": "string"
-            },
-            {
-                "name": "Data_ns_reputation_rare",
-                "type": "string"
-            },
-            {
-                "name": "Data_ns_reputation_raw_score",
-                "type": "string"
-            },
-            {
-                "name": "Data_ns_reputation_score",
-                "type": "string"
-            },
-            {
-                "name": "Data_ns_reputation_total_counts",
-                "type": "string"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_ptr": [
-            {
-                "name": "Data_ptr_record",
-                "type": "string"
-            },
-            {
-                "name": "Data_reason",
-                "type": "string"
-            },
-            {
-                "name": "Data_status",
-                "type": "string"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_rpz_feeds_records": [
-            {
-                "name": "Data_class",
-                "type": "string"
-            },
-            {
-                "name": "Data_expiration",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_feed_name",
-                "type": "string"
-            },
-            {
-                "name": "Data_indicator",
-                "type": "string"
-            },
-            {
-                "name": "Data_property",
-                "type": "string"
-            },
-            {
-                "name": "Data_threat_level",
-                "type": "real"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_tld_risk": [
-            {
-                "name": "Data_matches",
-                "type": "dynamic"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_whitelist": [
-            {
-                "name": "Data_value",
-                "type": "string"
-            },
-            {
-                "name": "Data_whitelisted",
-                "type": "boolean"
-            },
-            {
-                "name": "Data_code",
-                "type": "string"
-            },
-            {
-                "name": "Data_reason",
-                "type": "string"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
-        "dataColumns_whois": [
-            {
-                "name": "Data_response_ip_response",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_nameservers",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_response_parsed_whois_contacts",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_parsed_whois_created_date",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_response_parsed_whois_domain",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_parsed_whois_expired_date",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_response_parsed_whois_name_servers",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_response_whois_registry_domain_id",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_whois_registrar_abuse_email",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_whois_registrar_abuse_phone",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_parsed_whois_registrar_iana_id",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_parsed_whois_registrar_name",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_parsed_whois_statuses",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_response_parsed_whois_updated_date",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_response_raw",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_registrant",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_registration_created",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_response_registration_expires",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_response_registration_registrar",
-                "type": "string"
-            },
-            {
-                "name": "Data_response_registration_statuses",
-                "type": "dynamic"
-            },
-            {
-                "name": "Data_response_registration_updated",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_response_whois_date",
-                "type": "datetime"
-            },
-            {
-                "name": "Data_response_whois_record",
-                "type": "string"
-            },
-            {
-                "name": "RowData",
-                "type": "dynamic"
-            }
-        ],
         "dossierDcrNames": [
             "InfobloxDossier-Atp",
             "InfobloxDossier-Dns",
@@ -2691,7 +213,112 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_atp_CL",
-                    "columns": "[variables('streamOutputColumns_atp')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_record_count",
+                            "type": "real"
+                        },
+                        {
+                            "name": "data_attack_chain",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_attack_chain_collection",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_attack_chain_command_and_control",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_attack_chain_credential_access",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_attack_chain_defense_evasion",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_attack_chain_discovery",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_attack_chain_execution",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_attack_chain_exfiltration",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_attack_chain_impact",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_attack_chain_initial_access",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_attack_chain_lateral_movement",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_attack_chain_persistence",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_attack_chain_privilege_escalation",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2703,7 +330,252 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_atp_threat_CL",
-                    "columns": "[variables('streamOutputColumns_atp_threat')]"
+                    "columns": [
+                        {
+                            "name": "batch_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "class",
+                            "type": "string"
+                        },
+                        {
+                            "name": "confidence",
+                            "type": "real"
+                        },
+                        {
+                            "name": "detected",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "dga",
+                            "type": "string"
+                        },
+                        {
+                            "name": "domain",
+                            "type": "string"
+                        },
+                        {
+                            "name": "expiration",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "full_profile",
+                            "type": "string"
+                        },
+                        {
+                            "name": "host",
+                            "type": "string"
+                        },
+                        {
+                            "name": "id_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "imported",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "profile",
+                            "type": "string"
+                        },
+                        {
+                            "name": "property",
+                            "type": "string"
+                        },
+                        {
+                            "name": "received",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "threat_level",
+                            "type": "real"
+                        },
+                        {
+                            "name": "tld",
+                            "type": "string"
+                        },
+                        {
+                            "name": "type_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "extended_surbl_list",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_extended",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_ais_consent",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_cyberint_guid",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_no_whitelist",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_notes",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_reason",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_attack_chain",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_protocol",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_references",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_confidence_score",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_risk_score",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_threat_score",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_from_email",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_subject_line",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_email_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_processor",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_provider",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_submitter",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_sample_sha256",
+                            "type": "string"
+                        },
+                        {
+                            "name": "extended_comments",
+                            "type": "string"
+                        },
+                        {
+                            "name": "up",
+                            "type": "string"
+                        },
+                        {
+                            "name": "url",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ip",
+                            "type": "string"
+                        },
+                        {
+                            "name": "tlp",
+                            "type": "string"
+                        },
+                        {
+                            "name": "confidence_score",
+                            "type": "real"
+                        },
+                        {
+                            "name": "confidence_score_rating",
+                            "type": "string"
+                        },
+                        {
+                            "name": "confidence_score_vector",
+                            "type": "string"
+                        },
+                        {
+                            "name": "risk_score",
+                            "type": "real"
+                        },
+                        {
+                            "name": "risk_score_rating",
+                            "type": "string"
+                        },
+                        {
+                            "name": "risk_score_vector",
+                            "type": "string"
+                        },
+                        {
+                            "name": "threat_score",
+                            "type": "real"
+                        },
+                        {
+                            "name": "threat_score_rating",
+                            "type": "string"
+                        },
+                        {
+                            "name": "threat_score_vector",
+                            "type": "string"
+                        },
+                        {
+                            "name": "target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "origin",
+                            "type": "string"
+                        },
+                        {
+                            "name": "email",
+                            "type": "string"
+                        },
+                        {
+                            "name": "threat_label",
+                            "type": "string"
+                        },
+                        {
+                            "name": "hash",
+                            "type": "string"
+                        },
+                        {
+                            "name": "hash_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2715,7 +587,104 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_dns_CL",
-                    "columns": "[variables('streamOutputColumns_dns')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_A",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_AAAA",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_CERT",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_CNAME",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_HTTPS",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_MX",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_NS",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_SOA",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_SVCB",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_TSIG",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_TXT",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_rcode",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2727,7 +696,104 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_geo_CL",
-                    "columns": "[variables('streamOutputColumns_geo')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_asn_num",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_city",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_country_code",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_country_name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_isp",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_latitude",
+                            "type": "real"
+                        },
+                        {
+                            "name": "data_longitude",
+                            "type": "real"
+                        },
+                        {
+                            "name": "data_org",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_postal_code",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_region",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_info",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_reason",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2739,7 +805,68 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_infoblox_web_cat_CL",
-                    "columns": "[variables('streamOutputColumns_infoblox_web_cat')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_results",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_info",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_reason",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2751,7 +878,72 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_inforank_CL",
-                    "columns": "[variables('streamOutputColumns_inforank')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_message",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_domain",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_interval",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_rank",
+                            "type": "real"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2763,7 +955,60 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_malware_analysis_v3_CL",
-                    "columns": "[variables('streamOutputColumns_malware_analysis_v3')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_info",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_reason",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2775,7 +1020,52 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_nameserver_CL",
-                    "columns": "[variables('streamOutputColumns_nameserver')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        }
+                    ]
                 }
             }
         },
@@ -2787,7 +1077,52 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_nameserver_matches_CL",
-                    "columns": "[variables('streamOutputColumns_nameserver_matches')]"
+                    "columns": [
+                        {
+                            "name": "domain",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ns_reputation_confidence",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ns_reputation_label",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ns_reputation_malicious_counts",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ns_reputation_popular",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ns_reputation_rare",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ns_reputation_raw_score",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ns_reputation_score",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ns_reputation_total_counts",
+                            "type": "string"
+                        },
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        }
+                    ]
                 }
             }
         },
@@ -2799,7 +1134,68 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_ptr_CL",
-                    "columns": "[variables('streamOutputColumns_ptr')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_ptr_record",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_reason",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2811,7 +1207,52 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_rpz_feeds_CL",
-                    "columns": "[variables('streamOutputColumns_rpz_feeds')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        }
+                    ]
                 }
             }
         },
@@ -2823,7 +1264,44 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_rpz_feeds_records_CL",
-                    "columns": "[variables('streamOutputColumns_rpz_feeds_records')]"
+                    "columns": [
+                        {
+                            "name": "class",
+                            "type": "string"
+                        },
+                        {
+                            "name": "expiration",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "feed_name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "indicator",
+                            "type": "string"
+                        },
+                        {
+                            "name": "property",
+                            "type": "string"
+                        },
+                        {
+                            "name": "threat_level",
+                            "type": "real"
+                        },
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "detected",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        }
+                    ]
                 }
             }
         },
@@ -2835,7 +1313,108 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_threat_actor_CL",
-                    "columns": "[variables('streamOutputColumns_threat_actor')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_actor_description",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_actor_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_actor_name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_customer_first_dns_query",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_customer_last_dns_query",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_display_name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_ikb_submitted",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_purpose",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_related_count",
+                            "type": "real"
+                        },
+                        {
+                            "name": "data_reports",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_ttp",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_ikb_first_classified_malicious",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_external_references",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2847,7 +1426,60 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_tld_risk_CL",
-                    "columns": "[variables('streamOutputColumns_tld_risk')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_matches",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2859,7 +1491,72 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_whitelist_CL",
-                    "columns": "[variables('streamOutputColumns_whitelist')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_whitelisted",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "data_code",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_reason",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2871,7 +1568,208 @@
                 "plan": "Analytics",
                 "schema": {
                     "name": "dossier_whois_CL",
-                    "columns": "[variables('streamOutputColumns_whois')]"
+                    "columns": [
+                        {
+                            "name": "task_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "params_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_target",
+                            "type": "string"
+                        },
+                        {
+                            "name": "params_source",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string"
+                        },
+                        {
+                            "name": "time_value",
+                            "type": "real"
+                        },
+                        {
+                            "name": "v_value",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_ip_response",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_ip_response_country",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_ip_response_handle",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_ip_response_last_changed",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_response_ip_response_name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_ip_response_net_range",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_ip_response_net_type",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_ip_response_parent",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_ip_response_registration",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_response_ip_response_source_registery",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_nameservers",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_parsed_whois",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_contacts",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_created_date",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_domain",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_expired_date",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_name_servers",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_other_props",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_other_props_registry_domain_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_registrar",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_registrar_abuse_contact_email",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_registrar_abuse_contact_phone",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_registrar_iana_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_registrar_name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_statuses",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_parsed_whois_updated_date",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_response_raw",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_registrant",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_registration",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_registration_created",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_response_registration_expires",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_response_registration_registrar",
+                            "type": "string"
+                        },
+                        {
+                            "name": "data_response_registration_statuses",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_registration_updated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_response_whois",
+                            "type": "dynamic"
+                        },
+                        {
+                            "name": "data_response_whois_date",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "data_response_whois_record",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status_message_for_dossier",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "RowData",
+                            "type": "dynamic"
+                        }
+                    ]
                 }
             }
         },
@@ -2889,10 +1787,192 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierAtp": {
-                        "columns": "[variables('streamInputColumns_atp')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     },
                     "Custom-DossierAtpThreat": {
-                        "columns": "[variables('streamInputColumns_atp_threat')]"
+                        "columns": [
+                            {
+                                "name": "batch_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "class",
+                                "type": "string"
+                            },
+                            {
+                                "name": "confidence",
+                                "type": "real"
+                            },
+                            {
+                                "name": "detected",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "dga",
+                                "type": "string"
+                            },
+                            {
+                                "name": "domain",
+                                "type": "string"
+                            },
+                            {
+                                "name": "expiration",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "full_profile",
+                                "type": "string"
+                            },
+                            {
+                                "name": "host",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "imported",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "profile",
+                                "type": "string"
+                            },
+                            {
+                                "name": "property",
+                                "type": "string"
+                            },
+                            {
+                                "name": "received",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "threat_level",
+                                "type": "real"
+                            },
+                            {
+                                "name": "tld",
+                                "type": "string"
+                            },
+                            {
+                                "name": "type",
+                                "type": "string"
+                            },
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "extended",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "up",
+                                "type": "string"
+                            },
+                            {
+                                "name": "url",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ip",
+                                "type": "string"
+                            },
+                            {
+                                "name": "tlp",
+                                "type": "string"
+                            },
+                            {
+                                "name": "confidence_score",
+                                "type": "real"
+                            },
+                            {
+                                "name": "confidence_score_rating",
+                                "type": "string"
+                            },
+                            {
+                                "name": "confidence_score_vector",
+                                "type": "string"
+                            },
+                            {
+                                "name": "risk_score",
+                                "type": "real"
+                            },
+                            {
+                                "name": "risk_score_rating",
+                                "type": "string"
+                            },
+                            {
+                                "name": "risk_score_vector",
+                                "type": "string"
+                            },
+                            {
+                                "name": "threat_score",
+                                "type": "real"
+                            },
+                            {
+                                "name": "threat_score_rating",
+                                "type": "string"
+                            },
+                            {
+                                "name": "threat_score_vector",
+                                "type": "string"
+                            },
+                            {
+                                "name": "target",
+                                "type": "string"
+                            },
+                            {
+                                "name": "origin",
+                                "type": "string"
+                            },
+                            {
+                                "name": "email",
+                                "type": "string"
+                            },
+                            {
+                                "name": "threat_label",
+                                "type": "string"
+                            },
+                            {
+                                "name": "hash",
+                                "type": "string"
+                            },
+                            {
+                                "name": "hash_type",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -2911,7 +1991,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend json_data_attack_chain = parse_json(json_data['attack_chain'])\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_record_count = toreal(json_data['record_count']), data_attack_chain_collection = todynamic(json_data_attack_chain['collection']), data_attack_chain_command_and_control = todynamic(json_data_attack_chain['command_and_control']), data_attack_chain_credential_access = todynamic(json_data_attack_chain['credential_access']), data_attack_chain_defense_evasion = todynamic(json_data_attack_chain['defense_evasion']), data_attack_chain_discovery = tostring(json_data_attack_chain['discovery']), data_attack_chain_execution = todynamic(json_data_attack_chain['execution']), data_attack_chain_exfiltration = todynamic(json_data_attack_chain['exfiltration']), data_attack_chain_impact = tostring(json_data_attack_chain['impact']), data_attack_chain_initial_access = todynamic(json_data_attack_chain['initial_access']), data_attack_chain_lateral_movement = tostring(json_data_attack_chain['lateral_movement']), data_attack_chain_persistence = tostring(json_data_attack_chain['persistence']), data_attack_chain_privilege_escalation = tostring(json_data_attack_chain['privilege_escalation'])\n| project-away json_params, params, ['time'], ['v'], json_data, data, json_data_attack_chain",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend json_data_attack_chain = parse_json(json_data['attack_chain'])\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_record_count = toreal(json_data['record_count']), data_attack_chain_collection = todynamic(json_data_attack_chain['collection']), data_attack_chain_command_and_control = todynamic(json_data_attack_chain['command_and_control']), data_attack_chain_credential_access = todynamic(json_data_attack_chain['credential_access']), data_attack_chain_defense_evasion = todynamic(json_data_attack_chain['defense_evasion']), data_attack_chain_discovery = tostring(json_data_attack_chain['discovery']), data_attack_chain_execution = todynamic(json_data_attack_chain['execution']), data_attack_chain_exfiltration = todynamic(json_data_attack_chain['exfiltration']), data_attack_chain_impact = tostring(json_data_attack_chain['impact']), data_attack_chain_initial_access = todynamic(json_data_attack_chain['initial_access']), data_attack_chain_lateral_movement = tostring(json_data_attack_chain['lateral_movement']), data_attack_chain_persistence = tostring(json_data_attack_chain['persistence']), data_attack_chain_privilege_escalation = tostring(json_data_attack_chain['privilege_escalation']), RowData = json_data\n| project-away json_params, params, ['time'], ['v'], json_data, data, json_data_attack_chain",
                         "outputStream": "Custom-dossier_atp_CL"
                     },
                     {
@@ -2921,7 +2001,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_extended = parse_json(extended)\n| extend id_value = tostring(['id']), type_value = tostring(['type']), extended_surbl_list = tostring(json_extended['surbl_list']), extended_extended = tostring(json_extended['extended']), extended_ais_consent = tostring(json_extended['ais_consent']), extended_cyberint_guid = tostring(json_extended['cyberint_guid']), extended_no_whitelist = tostring(json_extended['no_whitelist']), extended_notes = tostring(json_extended['notes']), extended_reason = tostring(json_extended['reason']), extended_attack_chain = tostring(json_extended['attack_chain']), extended_protocol = tostring(json_extended['protocol']), extended_references = tostring(json_extended['references']), extended_confidence_score = tostring(json_extended['confidence_score']), extended_risk_score = tostring(json_extended['risk_score']), extended_threat_score = tostring(json_extended['threat_score']), extended_from_email = tostring(json_extended['from_email']), extended_subject_line = tostring(json_extended['subject_line']), extended_email_id = tostring(json_extended['email_id']), extended_processor = tostring(json_extended['processor']), extended_provider = tostring(json_extended['provider']), extended_submitter = tostring(json_extended['submitter']), extended_sample_sha256 = tostring(json_extended['sample_sha256']), extended_comments = tostring(json_extended['comments'])\n| project-away ['id'], ['type'], json_extended, extended",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_extended = parse_json(extended)\n| extend id_value = tostring(['id']), type_value = tostring(['type']), extended_surbl_list = tostring(json_extended['surbl_list']), extended_extended = tostring(json_extended['extended']), extended_ais_consent = tostring(json_extended['ais_consent']), extended_cyberint_guid = tostring(json_extended['cyberint_guid']), extended_no_whitelist = tostring(json_extended['no_whitelist']), extended_notes = tostring(json_extended['notes']), extended_reason = tostring(json_extended['reason']), extended_attack_chain = tostring(json_extended['attack_chain']), extended_protocol = tostring(json_extended['protocol']), extended_references = tostring(json_extended['references']), extended_confidence_score = tostring(json_extended['confidence_score']), extended_risk_score = tostring(json_extended['risk_score']), extended_threat_score = tostring(json_extended['threat_score']), extended_from_email = tostring(json_extended['from_email']), extended_subject_line = tostring(json_extended['subject_line']), extended_email_id = tostring(json_extended['email_id']), extended_processor = tostring(json_extended['processor']), extended_provider = tostring(json_extended['provider']), extended_submitter = tostring(json_extended['submitter']), extended_sample_sha256 = tostring(json_extended['sample_sha256']), extended_comments = tostring(json_extended['comments']), RowData = json_extended\n| project-away ['id'], ['type'], json_extended, extended",
                         "outputStream": "Custom-dossier_atp_threat_CL"
                     }
                 ]
@@ -2940,7 +2020,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierDns": {
-                        "columns": "[variables('streamInputColumns_dns')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -2959,7 +2068,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_A = todynamic(json_data['A']), data_AAAA = todynamic(json_data['AAAA']), data_CERT = todynamic(json_data['CERT']), data_CNAME = todynamic(json_data['CNAME']), data_HTTPS = todynamic(json_data['HTTPS']), data_MX = todynamic(json_data['MX']), data_NS = todynamic(json_data['NS']), data_SOA = todynamic(json_data['SOA']), data_SVCB = todynamic(json_data['SVCB']), data_TSIG = todynamic(json_data['TSIG']), data_TXT = todynamic(json_data['TXT']), data_rcode = tostring(json_data['rcode'])\n| project-away json_params, params, ['time'], ['v'], json_data, data",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_A = todynamic(json_data['A']), data_AAAA = todynamic(json_data['AAAA']), data_CERT = todynamic(json_data['CERT']), data_CNAME = todynamic(json_data['CNAME']), data_HTTPS = todynamic(json_data['HTTPS']), data_MX = todynamic(json_data['MX']), data_NS = todynamic(json_data['NS']), data_SOA = todynamic(json_data['SOA']), data_SVCB = todynamic(json_data['SVCB']), data_TSIG = todynamic(json_data['TSIG']), data_TXT = todynamic(json_data['TXT']), data_rcode = tostring(json_data['rcode']), RowData = json_data\n| project-away json_params, params, ['time'], ['v'], json_data, data",
                         "outputStream": "Custom-dossier_dns_CL"
                     }
                 ]
@@ -2978,7 +2087,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierGeo": {
-                        "columns": "[variables('streamInputColumns_geo')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -2997,7 +2135,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_asn_num = tostring(json_data['asn_num']), data_city = tostring(json_data['city']), data_country_code = tostring(json_data['country_code']), data_country_name = tostring(json_data['country_name']), data_isp = tostring(json_data['isp']), data_latitude = toreal(json_data['latitude']), data_longitude = toreal(json_data['longitude']), data_org = tostring(json_data['org']), data_postal_code = tostring(json_data['postal_code']), data_region = tostring(json_data['region']), data_info = tostring(json_data['info']), data_reason = tostring(json_data['reason'])\n| project-away json_params, params, ['time'], ['v'], json_data, data",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_asn_num = tostring(json_data['asn_num']), data_city = tostring(json_data['city']), data_country_code = tostring(json_data['country_code']), data_country_name = tostring(json_data['country_name']), data_isp = tostring(json_data['isp']), data_latitude = toreal(json_data['latitude']), data_longitude = toreal(json_data['longitude']), data_org = tostring(json_data['org']), data_postal_code = tostring(json_data['postal_code']), data_region = tostring(json_data['region']), data_info = tostring(json_data['info']), data_reason = tostring(json_data['reason']), RowData = json_data\n| project-away json_params, params, ['time'], ['v'], json_data, data",
                         "outputStream": "Custom-dossier_geo_CL"
                     }
                 ]
@@ -3016,7 +2154,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierInfobloxWebCat": {
-                        "columns": "[variables('streamInputColumns_infoblox_web_cat')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3035,7 +2202,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_results = todynamic(json_data['results']), data_info = tostring(json_data['info']), data_reason = tostring(json_data['reason'])\n| project-away json_params, params, ['time'], ['v'], json_data, data",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_results = todynamic(json_data['results']), data_info = tostring(json_data['info']), data_reason = tostring(json_data['reason']), RowData = json_data\n| project-away json_params, params, ['time'], ['v'], json_data, data",
                         "outputStream": "Custom-dossier_infoblox_web_cat_CL"
                     }
                 ]
@@ -3054,7 +2221,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierInforank": {
-                        "columns": "[variables('streamInputColumns_inforank')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3073,7 +2269,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_message = tostring(json_data['message']), data_domain = tostring(json_data['domain']), data_interval = tostring(json_data['interval']), data_rank = toreal(json_data['rank'])\n| project-away json_params, params, ['time'], ['v'], json_data, data",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_message = tostring(json_data['message']), data_domain = tostring(json_data['domain']), data_interval = tostring(json_data['interval']), data_rank = toreal(json_data['rank']), RowData = json_data\n| project-away json_params, params, ['time'], ['v'], json_data, data",
                         "outputStream": "Custom-dossier_inforank_CL"
                     }
                 ]
@@ -3092,7 +2288,32 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierMalwareAnalysisV3": {
-                        "columns": "[variables('streamInputColumns_malware_analysis_v3')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3111,7 +2332,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), v_value = tostring(['v']), data_info = tostring(json_data['info']), data_reason = tostring(json_data['reason'])\n| project-away json_params, params, ['v'], json_data, data",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), v_value = tostring(['v']), data_info = tostring(json_data['info']), data_reason = tostring(json_data['reason']), RowData = json_data\n| project-away json_params, params, ['v'], json_data, data",
                         "outputStream": "Custom-dossier_malware_analysis_v3_CL"
                     }
                 ]
@@ -3130,7 +2351,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierNameserver": {
-                        "columns": "[variables('streamInputColumns_nameserver')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3168,7 +2418,48 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierNameserverMatches": {
-                        "columns": "[variables('streamInputColumns_nameserver_matches')]"
+                        "columns": [
+                            {
+                                "name": "domain",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ns_reputation_confidence",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ns_reputation_label",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ns_reputation_malicious_counts",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ns_reputation_popular",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ns_reputation_rare",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ns_reputation_raw_score",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ns_reputation_score",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ns_reputation_total_counts",
+                                "type": "string"
+                            },
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3206,7 +2497,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierPtr": {
-                        "columns": "[variables('streamInputColumns_ptr')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3225,7 +2545,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_ptr_record = tostring(json_data['ptr_record']), data_reason = tostring(json_data['reason']), data_status = tostring(json_data['status'])\n| project-away json_params, params, ['time'], ['v'], json_data, data",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_ptr_record = tostring(json_data['ptr_record']), data_reason = tostring(json_data['reason']), data_status = tostring(json_data['status']), RowData = json_data\n| project-away json_params, params, ['time'], ['v'], json_data, data",
                         "outputStream": "Custom-dossier_ptr_CL"
                     }
                 ]
@@ -3244,7 +2564,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierRpzFeeds": {
-                        "columns": "[variables('streamInputColumns_rpz_feeds')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3282,7 +2631,40 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierRpzFeedsRecords": {
-                        "columns": "[variables('streamInputColumns_rpz_feeds_records')]"
+                        "columns": [
+                            {
+                                "name": "class",
+                                "type": "string"
+                            },
+                            {
+                                "name": "expiration",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "feed_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "indicator",
+                                "type": "string"
+                            },
+                            {
+                                "name": "property",
+                                "type": "string"
+                            },
+                            {
+                                "name": "threat_level",
+                                "type": "real"
+                            },
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "detected",
+                                "type": "datetime"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3320,7 +2702,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierThreatActor": {
-                        "columns": "[variables('streamInputColumns_threat_actor')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3339,7 +2750,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_actor_description = tostring(json_data['actor_description']), data_actor_id = tostring(json_data['actor_id']), data_actor_name = tostring(json_data['actor_name']), data_customer_first_dns_query = todatetime(json_data['customer_first_dns_query']), data_customer_last_dns_query = todatetime(json_data['customer_last_dns_query']), data_display_name = tostring(json_data['display_name']), data_ikb_submitted = todatetime(json_data['ikb_submitted']), data_purpose = todynamic(json_data['purpose']), data_related_count = toreal(json_data['related_count']), data_reports = todynamic(json_data['reports']), data_ttp = todynamic(json_data['ttp']), data_ikb_first_classified_malicious = todatetime(json_data['ikb_first_classified_malicious']), data_external_references = todynamic(json_data['external_references'])\n| project-away json_params, params, ['time'], ['v'], json_data, data",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_actor_description = tostring(json_data['actor_description']), data_actor_id = tostring(json_data['actor_id']), data_actor_name = tostring(json_data['actor_name']), data_customer_first_dns_query = todatetime(json_data['customer_first_dns_query']), data_customer_last_dns_query = todatetime(json_data['customer_last_dns_query']), data_display_name = tostring(json_data['display_name']), data_ikb_submitted = todatetime(json_data['ikb_submitted']), data_purpose = todynamic(json_data['purpose']), data_related_count = toreal(json_data['related_count']), data_reports = todynamic(json_data['reports']), data_ttp = todynamic(json_data['ttp']), data_ikb_first_classified_malicious = todatetime(json_data['ikb_first_classified_malicious']), data_external_references = todynamic(json_data['external_references']), RowData = json_data\n| project-away json_params, params, ['time'], ['v'], json_data, data",
                         "outputStream": "Custom-dossier_threat_actor_CL"
                     }
                 ]
@@ -3358,7 +2769,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierTldRisk": {
-                        "columns": "[variables('streamInputColumns_tld_risk')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3377,7 +2817,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_matches = todynamic(json_data['matches'])\n| project-away json_params, params, ['time'], ['v'], json_data, data",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_matches = todynamic(json_data['matches']), RowData = json_data\n| project-away json_params, params, ['time'], ['v'], json_data, data",
                         "outputStream": "Custom-dossier_tld_risk_CL"
                     }
                 ]
@@ -3396,7 +2836,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierWhitelist": {
-                        "columns": "[variables('streamInputColumns_whitelist')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3415,7 +2884,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_value = tostring(json_data['value']), data_whitelisted = tobool(json_data['whitelisted']), data_code = tostring(json_data['code']), data_reason = tostring(json_data['reason'])\n| project-away json_params, params, ['time'], ['v'], json_data, data",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_value = tostring(json_data['value']), data_whitelisted = tobool(json_data['whitelisted']), data_code = tostring(json_data['code']), data_reason = tostring(json_data['reason']), RowData = json_data\n| project-away json_params, params, ['time'], ['v'], json_data, data",
                         "outputStream": "Custom-dossier_whitelist_CL"
                     }
                 ]
@@ -3434,7 +2903,36 @@
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))]",
                 "streamDeclarations": {
                     "Custom-DossierWhois": {
-                        "columns": "[variables('streamInputColumns_whois')]"
+                        "columns": [
+                            {
+                                "name": "task_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "params",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "v",
+                                "type": "string"
+                            },
+                            {
+                                "name": "data",
+                                "type": "dynamic"
+                            },
+                            {
+                                "name": "status_message_for_dossier",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -3453,7 +2951,7 @@
                         "destinations": [
                             "logAnalyticsDest"
                         ],
-                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend json_data_response = parse_json(json_data['response'])\n| extend json_data_response_ip_response = parse_json(json_data_response['ip_response']), json_data_response_parsed_whois = parse_json(json_data_response['parsed_whois']), json_data_response_registration = parse_json(json_data_response['registration']), json_data_response_whois = parse_json(json_data_response['whois'])\n| extend json_data_response_parsed_whois_other_props = parse_json(json_data_response_parsed_whois['other_properties']), json_data_response_parsed_whois_registrar = parse_json(json_data_response_parsed_whois['registrar'])\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_response_ip_response_country = tostring(json_data_response_ip_response['country']), data_response_ip_response_handle = tostring(json_data_response_ip_response['handle']), data_response_ip_response_last_changed = todatetime(json_data_response_ip_response['last_changed']), data_response_ip_response_name = tostring(json_data_response_ip_response['name']), data_response_ip_response_net_range = tostring(json_data_response_ip_response['net_range']), data_response_ip_response_net_type = tostring(json_data_response_ip_response['net_type']), data_response_ip_response_parent = tostring(json_data_response_ip_response['parent']), data_response_ip_response_registration = todatetime(json_data_response_ip_response['registration']), data_response_ip_response_source_registery = tostring(json_data_response_ip_response['source_registery']), data_response_nameservers = todynamic(json_data_response['nameservers']), data_response_parsed_whois_contacts = tostring(json_data_response_parsed_whois['contacts']), data_response_parsed_whois_created_date = todatetime(json_data_response_parsed_whois['created_date']), data_response_parsed_whois_domain = tostring(json_data_response_parsed_whois['domain']), data_response_parsed_whois_expired_date = todatetime(json_data_response_parsed_whois['expired_date']), data_response_parsed_whois_name_servers = todynamic(json_data_response_parsed_whois['name_servers']), data_response_parsed_whois_other_props_registry_domain_id = tostring(json_data_response_parsed_whois_other_props['registry_domain_id']), data_response_parsed_whois_registrar_abuse_contact_email = tostring(json_data_response_parsed_whois_registrar['abuse_contact_email']), data_response_parsed_whois_registrar_abuse_contact_phone = tostring(json_data_response_parsed_whois_registrar['abuse_contact_phone']), data_response_parsed_whois_registrar_iana_id = tostring(json_data_response_parsed_whois_registrar['iana_id']), data_response_parsed_whois_registrar_name = tostring(json_data_response_parsed_whois_registrar['name']), data_response_parsed_whois_statuses = todynamic(json_data_response_parsed_whois['statuses']), data_response_parsed_whois_updated_date = todatetime(json_data_response_parsed_whois['updated_date']), data_response_raw = tostring(json_data_response['raw']), data_response_registrant = tostring(json_data_response['registrant']), data_response_registration_created = todatetime(json_data_response_registration['created']), data_response_registration_expires = todatetime(json_data_response_registration['expires']), data_response_registration_registrar = tostring(json_data_response_registration['registrar']), data_response_registration_statuses = todynamic(json_data_response_registration['statuses']), data_response_registration_updated = todatetime(json_data_response_registration['updated']), data_response_whois_date = todatetime(json_data_response_whois['date']), data_response_whois_record = tostring(json_data_response_whois['record'])\n| project-away json_params, params, ['time'], ['v'], json_data, data, json_data_response, json_data_response_ip_response, json_data_response_parsed_whois, json_data_response_parsed_whois_other_props, json_data_response_parsed_whois_registrar, json_data_response_registration, json_data_response_whois",
+                        "transformKql": "source\n| extend TimeGenerated = todatetime(now()), json_params = parse_json(params), json_data = parse_json(data)\n| extend json_data_response = parse_json(json_data['response'])\n| extend json_data_response_ip_response = parse_json(json_data_response['ip_response']), json_data_response_parsed_whois = parse_json(json_data_response['parsed_whois']), json_data_response_registration = parse_json(json_data_response['registration']), json_data_response_whois = parse_json(json_data_response['whois'])\n| extend json_data_response_parsed_whois_other_props = parse_json(json_data_response_parsed_whois['other_properties']), json_data_response_parsed_whois_registrar = parse_json(json_data_response_parsed_whois['registrar'])\n| extend params_type = tostring(json_params['type']), params_target = tostring(json_params['target']), params_source = tostring(json_params['source']), time_value = toreal(['time']), v_value = tostring(['v']), data_response_ip_response_country = tostring(json_data_response_ip_response['country']), data_response_ip_response_handle = tostring(json_data_response_ip_response['handle']), data_response_ip_response_last_changed = todatetime(json_data_response_ip_response['last_changed']), data_response_ip_response_name = tostring(json_data_response_ip_response['name']), data_response_ip_response_net_range = tostring(json_data_response_ip_response['net_range']), data_response_ip_response_net_type = tostring(json_data_response_ip_response['net_type']), data_response_ip_response_parent = tostring(json_data_response_ip_response['parent']), data_response_ip_response_registration = todatetime(json_data_response_ip_response['registration']), data_response_ip_response_source_registery = tostring(json_data_response_ip_response['source_registery']), data_response_nameservers = todynamic(json_data_response['nameservers']), data_response_parsed_whois_contacts = tostring(json_data_response_parsed_whois['contacts']), data_response_parsed_whois_created_date = todatetime(json_data_response_parsed_whois['created_date']), data_response_parsed_whois_domain = tostring(json_data_response_parsed_whois['domain']), data_response_parsed_whois_expired_date = todatetime(json_data_response_parsed_whois['expired_date']), data_response_parsed_whois_name_servers = todynamic(json_data_response_parsed_whois['name_servers']), data_response_parsed_whois_other_props_registry_domain_id = tostring(json_data_response_parsed_whois_other_props['registry_domain_id']), data_response_parsed_whois_registrar_abuse_contact_email = tostring(json_data_response_parsed_whois_registrar['abuse_contact_email']), data_response_parsed_whois_registrar_abuse_contact_phone = tostring(json_data_response_parsed_whois_registrar['abuse_contact_phone']), data_response_parsed_whois_registrar_iana_id = tostring(json_data_response_parsed_whois_registrar['iana_id']), data_response_parsed_whois_registrar_name = tostring(json_data_response_parsed_whois_registrar['name']), data_response_parsed_whois_statuses = todynamic(json_data_response_parsed_whois['statuses']), data_response_parsed_whois_updated_date = todatetime(json_data_response_parsed_whois['updated_date']), data_response_raw = tostring(json_data_response['raw']), data_response_registrant = tostring(json_data_response['registrant']), data_response_registration_created = todatetime(json_data_response_registration['created']), data_response_registration_expires = todatetime(json_data_response_registration['expires']), data_response_registration_registrar = tostring(json_data_response_registration['registrar']), data_response_registration_statuses = todynamic(json_data_response_registration['statuses']), data_response_registration_updated = todatetime(json_data_response_registration['updated']), data_response_whois_date = todatetime(json_data_response_whois['date']), data_response_whois_record = tostring(json_data_response_whois['record']), RowData = json_data\n| project-away json_params, params, ['time'], ['v'], json_data, data, json_data_response, json_data_response_ip_response, json_data_response_parsed_whois, json_data_response_parsed_whois_other_props, json_data_response_parsed_whois_registrar, json_data_response_registration, json_data_response_whois",
                         "outputStream": "Custom-dossier_whois_CL"
                     }
                 ]

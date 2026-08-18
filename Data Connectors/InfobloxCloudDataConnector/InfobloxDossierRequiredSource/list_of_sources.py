@@ -42,14 +42,14 @@ class DossierListSources(Utils):
         )
         client = LogsQueryClient(credential)
         query = """let dummyschema = datatable"""
-        query += """(TimeGenerated:datetime, ParamsType:string, ParamsTarget:string, Count:int)[];"""
+        query += """(TimeGenerated:datetime, params_type:string, params_target:string, Count:int)[];"""
         for val in consts.SOURCES.get(ioc_type):
             query += f"""let {val}_count =
                 union isfuzzy=true
                 dummyschema,
                 dossier_{val}_CL
                 | where TimeGenerated >= ago(24h)
-                | where ParamsType =="{ioc_type}" and ParamsTarget =="{ioc_val}"
+                | where params_type =="{ioc_type}" and params_target =="{ioc_val}"
                 | count
                 | project {val}_count = Count
                 ;\n"""

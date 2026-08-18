@@ -3,7 +3,6 @@
 import inspect
 import datetime
 import requests
-import json
 from azure.storage.fileshare import ShareDirectoryClient
 from ..SharedCode import consts
 from ..SharedCode.infoblox_exception import InfobloxException
