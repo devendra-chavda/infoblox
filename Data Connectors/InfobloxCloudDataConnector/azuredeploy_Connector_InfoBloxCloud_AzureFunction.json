@@ -111,28 +111,28 @@
         }
     },
     "variables": {
-        "FunctionNameDurable": "[concat('dossier1',uniqueString(resourceGroup().id))]",
+        "FunctionNameDurable": "[concat('dossierlook',uniqueString(resourceGroup().id))]",
         "function_names_Historical": [
-            "host1",
-            "ip1",
-            "url1",
-            "hash1",
-            "email1"
+            "host",
+            "ip",
+            "url",
+            "hash",
+            "email"
         ],
         "function_names_Current": [
-            "host1",
-            "ip1",
-            "url1",
-            "hash1",
-            "email1"
+            "host",
+            "ip",
+            "url",
+            "hash",
+            "email"
         ],
         "function_names_Json_parse": [
-            "hist1",
-            "curr1"
+            "hist",
+            "curr"
         ],
         "function_names_Indicator": [
-            "hist1",
-            "curr1"
+            "hist",
+            "curr"
         ],
         "HistCommon_storage": "[concat('Histhost',uniqueString(resourceGroup().id))]",
         "CurrCommon_storage": "[concat('Currhost',uniqueString(resourceGroup().id))]",
@@ -3918,6 +3918,7 @@
                         "Azure_Client_Id": "[parameters('AzureClientId')]",
                         "Azure_Client_Secret": "[parameters('AzureClientSecret')]",
                         "Azure_Tenant_Id": "[parameters('AzureTenantId')]",
+                        "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET": "[parameters('AzureClientSecret')]",
                         "Dce_Endpoint": "[reference(resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))).logsIngestion.endpoint]",
                         "Scope": "[variables('scope')]",
                         "Dcr_Atp_ImmutableId": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', 'InfobloxDossier-Atp')).immutableId]",
@@ -3940,6 +3941,48 @@
                     }
                 }
             ]
+        },
+        {
+            "type": "Microsoft.Web/sites/config",
+            "apiVersion": "2022-03-01",
+            "name": "[concat(variables('FunctionNameDurable'), '/authsettingsV2')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('FunctionNameDurable'))]",
+                "[resourceId('Microsoft.Web/sites/config', variables('FunctionNameDurable'), 'appsettings')]"
+            ],
+            "properties": {
+                "platform": {
+                    "enabled": true
+                },
+                "globalValidation": {
+                    "requireAuthentication": true,
+                    "unauthenticatedClientAction": "RedirectToLoginPage",
+                    "redirectToProvider": "azureactivedirectory"
+                },
+                "identityProviders": {
+                    "azureActiveDirectory": {
+                        "enabled": true,
+                        "registration": {
+                            "openIdIssuer": "[concat(environment().authentication.loginEndpoint, parameters('AzureTenantId'), '/v2.0')]",
+                            "clientId": "[parameters('AzureClientId')]",
+                            "clientSecretSettingName": "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
+                        },
+                        "validation": {
+                            "allowedAudiences": [
+                                "[parameters('AzureClientId')]"
+                            ]
+                        }
+                    }
+                },
+                "login": {
+                    "tokenStore": {
+                        "enabled": true
+                    }
+                },
+                "httpSettings": {
+                    "requireHttps": true
+                }
+            }
         },
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
@@ -4011,6 +4054,10 @@
         }
     ],
     "outputs": {
+        "dossierAuthenticationRedirectUri": {
+            "type": "string",
+            "value": "[concat('https://', reference(resourceId('Microsoft.Web/sites', variables('FunctionNameDurable')), '2022-03-01').defaultHostName, '/.auth/login/aad/callback')]"
+        },
         "dceLogsIngestionEndpoint": {
             "type": "string",
             "value": "[reference(resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('dceName'))).logsIngestion.endpoint]"
